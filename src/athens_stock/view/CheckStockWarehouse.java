@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lullaby
  */
-public class CheckStockWarehouse extends javax.swing.JFrame {
+public class CheckStockWarehouse extends JFrame {
 
     /**
      * Creates new form NewJFrame
@@ -59,7 +59,6 @@ public class CheckStockWarehouse extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 620));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication10/athens.jpg"))); // NOI18N
 
@@ -68,7 +67,7 @@ public class CheckStockWarehouse extends javax.swing.JFrame {
 
         btnBack.setText("Home");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -80,7 +79,7 @@ public class CheckStockWarehouse extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                String.class, String.class, String.class, String.class
             };
 
             public Class getColumnClass(int columnIndex) {

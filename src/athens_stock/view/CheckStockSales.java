@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lullaby
  */
-public class CheckStockSales extends javax.swing.JFrame {
+public class CheckStockSales extends JFrame {
 
     /**
      * Creates new form NewJFrame
@@ -71,7 +71,7 @@ public class CheckStockSales extends javax.swing.JFrame {
 
         btnBack.setText("Home");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -83,7 +83,7 @@ public class CheckStockSales extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                String.class, String.class, String.class, String.class, String.class
             };
 
             public Class getColumnClass(int columnIndex) {

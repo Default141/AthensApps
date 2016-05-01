@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author lullaby
  */
-public class MenuWarehouse extends javax.swing.JFrame {
+public class MenuWarehouse extends JFrame {
 
     /**
      * Creates new form NewJFrame
