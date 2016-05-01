@@ -111,7 +111,6 @@ public class CheckStockSales extends JFrame {
         JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
         //
 
-
         jLabel3.setText("Date : ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
