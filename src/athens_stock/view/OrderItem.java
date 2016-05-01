@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication10;
+package athens_stock.view;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -95,7 +95,7 @@ public class OrderItem extends javax.swing.JFrame {
 
         jLabel10.setText("Other requirement :");
 
-        jButton1.setText("Comfirmation page>>");
+        jButton1.setText("Confirmation page>>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication10;
+package athens_stock.view;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -75,7 +75,7 @@ public class AddItem extends javax.swing.JFrame {
 
         btnBack.setText("Home");
 
-        jLabel3.setText("Date : dd/mm/yyyy");
+        jLabel3.setText("Date :");
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel5.setText("Add Item");
