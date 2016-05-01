@@ -11,6 +11,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 import javax.swing.JFrame;
 
@@ -37,6 +38,10 @@ public class AddCustomer extends JFrame {
 
     public JFrame getJFrame() {
         return this.test;
+    }
+    
+    public void setHomeAction(ActionListener action) {
+        btnBack.addActionListener(action);
     }
 
     /**
@@ -191,6 +196,8 @@ public class AddCustomer extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -257,4 +264,6 @@ public class AddCustomer extends JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+
+
 }
