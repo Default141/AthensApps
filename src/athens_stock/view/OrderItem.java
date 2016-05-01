@@ -11,7 +11,9 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.Properties;
+import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -221,6 +223,9 @@ public class OrderItem extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setHomeActiom(ActionListener action){
+        btnBack.addActionListener(action);
+    }
     /**
      * @param args the command line arguments
      */

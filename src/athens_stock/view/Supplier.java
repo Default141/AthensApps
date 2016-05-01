@@ -11,6 +11,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -184,6 +185,10 @@ public class Supplier extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
+    
+    public void setHomeAction(ActionListener action){
+        btnBack.addActionListener(action);
+    }
     /**
      * @param args the command line arguments
      */
