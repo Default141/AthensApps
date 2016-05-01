@@ -71,6 +71,7 @@ public class AddItem extends JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +81,16 @@ public class AddItem extends JFrame {
         jLabel2.setText("Stock Management System");
 
         btnBack.setText("Home");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Date :");
 
@@ -114,15 +125,16 @@ public class AddItem extends JFrame {
 
         jButton1.setText("Add Item");
 
-        // JDate Picker
-        Properties p = new Properties();
-        p.put("text.today", "Today");
-        p.put("text.month", "Month");
-        p.put("text.year", "Year");
-        UtilDateModel dateModel = new UtilDateModel();
-        JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, p);
-        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-        //
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,7 +146,7 @@ public class AddItem extends JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +215,7 @@ public class AddItem extends JFrame {
                     .addComponent(jLabel5))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
                         .addComponent(jButton2)))
@@ -246,6 +258,16 @@ public class AddItem extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+       MenuWarehouse wareHouse = new MenuWarehouse();
+       this.dispose();
+       wareHouse.setVisible(true);
+    }//GEN-LAST:event_btnBackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -309,6 +331,7 @@ public class AddItem extends JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;

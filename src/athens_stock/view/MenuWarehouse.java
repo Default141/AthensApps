@@ -61,12 +61,27 @@ public class MenuWarehouse extends JFrame {
 
         jButton3.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jButton3.setText("Check Stock");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jButton4.setText("Add new item");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel3.setText("Warehouse");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,6 +132,21 @@ public class MenuWarehouse extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        CheckStockWarehouse checkStock = new CheckStockWarehouse();
+        checkStock.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        AddItem add = new AddItem();
+        add.dispose();
+        add.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
