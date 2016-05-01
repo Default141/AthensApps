@@ -50,6 +50,15 @@ public class MenuSalesController {
                 menusale.dispose();
             }
         });
+        menusale.setAddCustomerAction(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddCustomerController customer = new AddCustomerController();
+                menusale.dispose();
+            }
+        });
+        
         
     }
     
