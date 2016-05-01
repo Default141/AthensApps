@@ -12,16 +12,14 @@ public class DAOproduct {
     private int supplierId;
     private int amount;
     private double price;
-    private Image image;
 
-    public DAOproduct(String name, String type, String locate, int supplierId, int amount, double price, Image image) {
+    public DAOproduct(String name, String type, String locate, int supplierId, int amount, double price) {
         this.name = name;
         this.type = type;
         this.locate = locate;
         this.supplierId = supplierId;
         this.amount = amount;
         this.price = price;
-        this.image = image;
     }
 
     public String getName() {
@@ -72,11 +70,4 @@ public class DAOproduct {
         this.price = price;
     }
 
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
 }
