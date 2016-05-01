@@ -6,6 +6,7 @@
 package athens_stock.view;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 /**
@@ -125,6 +126,17 @@ public class MenuSales extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setCheckStockAction(ActionListener action){
+        jButton3.addActionListener(action);
+    }
+    
+    public void setSupplierAction(ActionListener action){
+        jButton6.addActionListener(action);
+    }
+    
+    public void setOrderItemAction(ActionListener action){
+        jButton5.addActionListener(action);
+    }
     /**
      * @param args the command line arguments
      */
