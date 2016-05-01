@@ -52,7 +52,7 @@ public class MenuSales extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication10/athens.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         jLabel2.setText("Stock Management System");
