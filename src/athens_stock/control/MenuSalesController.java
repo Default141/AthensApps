@@ -38,16 +38,15 @@ public class MenuSalesController {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-               /* CheckStockSales checkstock = new CheckStockSales();
-                checkstock.setVisible(true);
-                menusale.dispose(); */
+               SupplierController supplier = new SupplierController();
+                menusale.dispose(); 
             }
         });
         menusale.setOrderItemAction(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrderItem order = new OrderItem();
+                OrderItemController order = new OrderItemController();
                 menusale.dispose();
             }
         });
