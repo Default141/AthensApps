@@ -118,8 +118,41 @@ public class DBMethod {
         dbDisConnect();
     }
 
+    public boolean addProduct(JTextField tfName, JTextField tfType, JTextField tfLocate, JComboBox cbbSupplier,
+                           JTextField tfAmount, JTextField tfPrice) {
+        String name = tfName.getText();
+        String type = tfType.getText();
+        String locate = tfLocate.getText();
+        String amount = tfAmount.getText();
+        String price = tfPrice.getText();
+
+
+        if (name.equals("") || type.equals("") || locate.equals("") || amount.equals("") ||
+                price.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill all data.", "Message", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        }
+
+        if (!(checkInjection(name) && checkInjection(type) && checkInjection(locate) &&
+                checkInjection(amount) && checkInjection(price))) {
+            return false;
+        }
+        if(!(amount.matches("\\d+") && price.matches("\\d+"))){
+            JOptionPane.showMessageDialog(null, "Incorrect data.", "Message", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        }
+        String supplierID = ((String) cbbSupplier.getSelectedItem()).substring(0,1);
+//INSERT INTO `SE-product`(`product_id`, `product_name`, `product_type`, `product_locate`, `product_supplier_id`, `product_amount`, `product_price`, `product_status`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8])
+        dbConnect();
+        String sql = "INSERT INTO `SE-product`(`product_name`, `product_type`, `product_locate`, `product_supplier_id`, `product_amount`, `product_price`) VALUES ('" +
+                name + "', '" + type + "', '" + locate + "', '" + supplierID + "', '" + amount + "', '" + price + "')";
+        dbExecuteQuery(sql);
+        dbDisConnect();
+        return true;
+    }
+
     public boolean addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
-                             JComboBox<String> cbbcus, JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
+                                JComboBox<String> cbbcus, JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
         dbConnect();
 
         String item1 = (String) cbbItem1.getSelectedItem();
@@ -130,12 +163,12 @@ public class DBMethod {
         String status = "waiting";
 
         int success = 0;
-        int amount1 =  (Integer)spItem1.getValue();
-        int amount2 = (Integer)spItem2.getValue();
-        int amount3 =  (Integer)spItem3.getValue();
-        int amount4 =  (Integer)spItem4.getValue();
-        if(customerID == null){
-            JOptionPane.showMessageDialog(null,"Please select Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+        int amount1 = (Integer) spItem1.getValue();
+        int amount2 = (Integer) spItem2.getValue();
+        int amount3 = (Integer) spItem3.getValue();
+        int amount4 = (Integer) spItem4.getValue();
+        if (customerID == null) {
+            JOptionPane.showMessageDialog(null, "Please select Customer ID", "Message", JOptionPane.INFORMATION_MESSAGE);
         }
 
         if (item1 != null) {
@@ -170,7 +203,7 @@ public class DBMethod {
             success++;
         }
         dbDisConnect();
-        if(success > 0) return true;
+        if (success > 0) return true;
         else return false;
     }
 
@@ -205,7 +238,7 @@ public class DBMethod {
         return product;
         //dont forget to change supid to supname
     }
-    
+
     public ArrayList<DAOproduct> getStockWareHouse(JTextField tfSearch, String ptype) {
         dbConnect();
         ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
@@ -216,7 +249,7 @@ public class DBMethod {
         }
         String re;
         if (key.length() > 0) {
-            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "' and (product_name LIKE '%" + key +"%')";
+            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "' and (product_name LIKE '%" + key + "%')";
         } else {
             re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "'";
         }
@@ -246,7 +279,7 @@ public class DBMethod {
             return false;
         }
         String addCus = "INSERT INTO `SE-customer`(`customer_id`, `customer_name`, `customer_address`, `customer_phone`, `customer_status`)"
-                + " VALUES ('"+ customerIdGenerator() + "', '" + name + "', '"
+                + " VALUES ('" + customerIdGenerator() + "', '" + name + "', '"
                 + address + "', '" + phone + "' , 'active')";
         dbExecuteQuery(addCus);
         dbDisConnect();
@@ -300,7 +333,6 @@ public class DBMethod {
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
             String no = (String) t.get("blacklist_id");
-            String name = (String) t.get("customer_name");
             String re = (String) t.get("blacklist_reason");
             customer.add(new DAOblacklistC(no, re));
         }
@@ -347,6 +379,22 @@ public class DBMethod {
         return item;
     }
 
+    public String[] supCombo() {
+        dbConnect();
+        String sql = "select `id`, `supplier_name` from `SE-supplier`";
+        ArrayList<HashMap> all = db.queryRows(sql);
+        String[] sup = new String[all.size() + 1];
+        int i = 1;
+        for (HashMap t : all) {
+            String id = (String) t.get("id");
+            String name = (String) t.get("supplier_name");
+            sup[i++] = id + " - " +name;
+        }
+        dbDisConnect();
+
+        return sup;
+    }
+
     public String[] retailerCombo() {
         dbConnect();
         String sql = "select supplier_name from `SE-supplier`";
@@ -383,7 +431,7 @@ public class DBMethod {
         dbDisConnect();
         return supplierName;
     }
-    
+
     public String[] customerIDCombo() {
         dbConnect();
         String sql = "select customer_id from `SE-customer`";
