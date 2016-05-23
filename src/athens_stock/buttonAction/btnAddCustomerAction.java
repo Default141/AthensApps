@@ -23,6 +23,6 @@ public class btnAddCustomerAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         //INSERT INTO `SE-customer`(`id`, `customer_name`, `customer_address`, `customer_phone`, `customer_status`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
-        db.addCustomer(tfName, tfAddr, tfPhone);
+        //db.addCustomer(tfName, tfAddr, tfPhone);
     }
 }

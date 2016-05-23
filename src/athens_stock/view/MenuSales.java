@@ -48,9 +48,9 @@ public class MenuSales extends JFrame {
         ldWelcome = new javax.swing.JLabel();
         btnCheckStock = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
-        btnSupplier = new javax.swing.JButton();
+        btnCustomer = new javax.swing.JButton();
         lbSales = new javax.swing.JLabel();
-        btnAddSupplier = new javax.swing.JButton();
+        btnAddCustomer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,15 +68,15 @@ public class MenuSales extends JFrame {
         btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         btnOrder.setText("Order Item");
 
-        btnSupplier.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        btnSupplier.setText("Supplier");
+        btnCustomer.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnCustomer.setText("Customer");
 
         lbSales.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         lbSales.setText("Sales");
 
-        btnAddSupplier.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        btnAddSupplier.setText("Add Supplier");
-        btnAddSupplier.setToolTipText("");
+        btnAddCustomer.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnAddCustomer.setText("Add Customer");
+        btnAddCustomer.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,10 +103,10 @@ public class MenuSales extends JFrame {
                         .addComponent(btnOrder))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addComponent(btnSupplier))
+                        .addComponent(btnCustomer))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
-                        .addComponent(btnAddSupplier)))
+                        .addComponent(btnAddCustomer)))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,11 +125,11 @@ public class MenuSales extends JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(btnCheckStock)
                 .addGap(30, 30, 30)
-                .addComponent(btnSupplier)
+                .addComponent(btnCustomer)
                 .addGap(30, 30, 30)
                 .addComponent(btnOrder)
                 .addGap(30, 30, 30)
-                .addComponent(btnAddSupplier)
+                .addComponent(btnAddCustomer)
                 .addGap(54, 54, 54))
         );
 
@@ -141,7 +141,7 @@ public class MenuSales extends JFrame {
     }
     
     public void setSupplierAction(ActionListener action){
-        btnSupplier.addActionListener(action);
+        btnCustomer.addActionListener(action);
     }
     
     public void setOrderItemAction(ActionListener action){
@@ -149,7 +149,7 @@ public class MenuSales extends JFrame {
     }
     
     public void setAddCustomerAction(ActionListener action){
-        btnAddSupplier.addActionListener(action);
+        btnAddCustomer.addActionListener(action);
     }
     /**
      * @param args the command line arguments
@@ -158,8 +158,8 @@ public class MenuSales extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckStock;
     private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnSupplier;
-    private javax.swing.JButton btnAddSupplier;
+    private javax.swing.JButton btnCustomer;
+    private javax.swing.JButton btnAddCustomer;
     private javax.swing.JLabel athensPic;
     private javax.swing.JLabel lbStockManage;
     private javax.swing.JLabel lbSales;

@@ -2,6 +2,7 @@ package athens_stock.buttonAction;
 
 import athens_stock.model.DAOproduct;
 import athens_stock.model.DBMethod;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -27,7 +28,7 @@ public class btnSaleSearchStockAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<DAOproduct> products = db.getStock(key, (String)comboBoxModel.getSelectedItem());
+        ArrayList<DAOproduct> products = db.getStock(key, (String) comboBoxModel.getSelectedItem());
         int line = 0;
 
         while (tableModel.getRowCount() > 0) {
