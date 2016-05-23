@@ -171,7 +171,7 @@ public class CheckStockSales extends JFrame {
     }
     
     public void setSearchAction(ActionListener action){
-        jButton1.addActionListener(action);
+        btnUpdate.addActionListener(action);
     }
      
     public JTextField getTextFieldSearch(){
