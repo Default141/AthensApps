@@ -19,3 +19,4 @@ build
 build.xml
 manifest.mf
 
+/dist/

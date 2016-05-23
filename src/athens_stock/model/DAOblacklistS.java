@@ -1,17 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package athens_stock.model;
 
 /**
- * Created by Chayut on 01-May-16.
+ *
+ * @author lullaby
  */
-public class DAOblacklist {
+public class DAOblacklistS {
     private String id;
     private String reason;
-
-    public DAOblacklist(String id, String reason) {
+    
+    public DAOblacklistS(String id, String reason){
         this.id = id;
         this.reason = reason;
     }
-
+    
     public String getId() {
         return id;
     }
