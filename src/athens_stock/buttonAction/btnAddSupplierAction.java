@@ -8,12 +8,12 @@ import java.awt.event.ActionEvent;
 /**
  * Created by Chayut on 23-May-16.
  */
-public class btnAddSupplier extends AbstractAction {
+public class btnAddSupplierAction extends AbstractAction {
 
     DBMethod db = new DBMethod();
     JTextField tfName, tfAddr, tfPhone;
 
-    public btnAddSupplier(String buttonText, JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
+    public btnAddSupplierAction(String buttonText, JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         super(buttonText);
         this.tfName = tfName;
         this.tfAddr = tfAddr;
