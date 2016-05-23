@@ -101,13 +101,14 @@ public class DBMethod {
     }
 
     public boolean addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
-                             JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
+                             JComboBox<String> cbbcus, JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
         dbConnect();
 
         String item1 = (String) cbbItem1.getSelectedItem();
         String item2 = (String) cbbItem2.getSelectedItem();
         String item3 = (String) cbbItem3.getSelectedItem();
         String item4 = (String) cbbItem4.getSelectedItem();
+        String customerID = (String) cbbcus.getSelectedItem();
         String status = "waiting";
 
         int success = 0;
@@ -115,34 +116,37 @@ public class DBMethod {
         int amount2 = (Integer)spItem2.getValue();
         int amount3 =  (Integer)spItem3.getValue();
         int amount4 =  (Integer)spItem4.getValue();
+        if(customerID == null){
+            JOptionPane.showMessageDialog(null,"Please select Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+        }
 
         if (item1 != null) {
-            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
-                    "VALUES ('" + item1 + "', '" + amount1 + "' , '" + status + "')";
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status, customer_id) " +
+                    "VALUES ('" + item1 + "', '" + amount1 + "' , '" + status + "' , '" + customerID + "')";
             System.out.println("item1");
             dbExecuteQuery(sql);
             success++;
         }
 
         if (item2 != null) {
-            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
-                    "VALUES ('" + item2 + "', '" + amount2 + "' , '" + status + "')";
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status, customer_id) " +
+                    "VALUES ('" + item2 + "', '" + amount2 + "' , '" + status + "' , '" + customerID + "')";
             System.out.println("item2");
             dbExecuteQuery(sql);
             success++;
         }
 
         if (item3 != null) {
-            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
-                    "VALUES ('" + item3 + "', '" + amount3 + "' , '" + status + "')";
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status, customer_id) " +
+                    "VALUES ('" + item3 + "', '" + amount3 + "' , '" + status + "' , '" + customerID + "')";
             System.out.println("item3");
             dbExecuteQuery(sql);
             success++;
         }
 
         if (item4 != null) {
-            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
-                    "VALUES ('" + item4 + "', '" + amount4 + "' , '" + status + "')";
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status, customer_id) " +
+                    "VALUES ('" + item4 + "', '" + amount4 + "' , '" + status + "' , '" + customerID + "')";
             System.out.println("item4");
             dbExecuteQuery(sql);
             success++;
@@ -330,6 +334,21 @@ public class DBMethod {
         }
         dbDisConnect();
         return supplierName;
+    }
+    
+    public String[] customerIDCombo() {
+        dbConnect();
+        String sql = "select customer_id from `SE-customer`";
+        ArrayList<HashMap> all = db.queryRows(sql);
+        String[] item = new String[all.size() + 1];
+        int i = 1;
+        for (HashMap t : all) {
+            String name = (String) t.get("customer_id");
+            item[i++] = name;
+        }
+        dbDisConnect();
+
+        return item;
     }
 
 }
