@@ -34,6 +34,18 @@ public class btnAddOrderItemAction extends AbstractAction {
                  db.addOrderItem(cbbItem1, cbbItem2, cbbItem3, cbbItem4,
                 spItem1, spItem2, spItem3, spItem4);
                 JOptionPane.showMessageDialog(null,"Order Item Successful","Message",JOptionPane.INFORMATION_MESSAGE);
+                setSelectionDefault();
             }
+    }
+    
+     private void setSelectionDefault(){
+        cbbItem1.setSelectedIndex(0);
+        cbbItem2.setSelectedIndex(0);
+        cbbItem3.setSelectedIndex(0);
+        cbbItem4.setSelectedIndex(0);
+        spItem1.setValue(0);
+        spItem2.setValue(0);
+        spItem3.setValue(0);
+        spItem4.setValue(0);
     }
 }
