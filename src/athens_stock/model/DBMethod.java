@@ -37,9 +37,9 @@ public class DBMethod {
         db.executeQuery(sql);
     }
 
-    public void addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
+    public void addSupplier(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();
-        String addCus = "INSERT INTO SE-customer(customer_name, customer_address,customer_phone)"
+        String addCus = "INSERT INTO SE-supplier(supplier_name, supplier_address,supplier_phone)"
                 + "VALUES('" + tfName.getText() + "'" + "," + "'"
                 + tfAddr.getText() + "'" + "," + "'" + tfPhone.getText()
                 + "'" + ")";
@@ -87,24 +87,26 @@ public class DBMethod {
         return customer;
     }
 
-    public ArrayList<DAOcustomer> getStock(JTextField tfSearch) {
+    public ArrayList<DAOproduct> getStock(JTextField tfSearch) {
         dbConnect();
         String key = (String) tfSearch.getText();
-        String re = "SELECT * FROM SE-product WHERE product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
+        String re = "SELECT * FROM `SE-product` WHERE product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
                 + "product_phone LIKE '%" + key + "%' OR product_status LIKE '%" + key + "%' OR product_address LIKE '%"
                 + key + "%'";
-        ArrayList<DAOcustomer> customer = new ArrayList<DAOcustomer>();
+        ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
-            String no = (String) t.get("product_id");
             String name = (String) t.get("product_name");
-            String supName = (String) t.get("product_supplier_id");
-            String amount = (String) t.get("product_amount");
-            String price = (String) t.get("product_price");
-            customer.add(new DAOcustomer(no, name, supName, amount, price));
+            String type = (String) t.get("product_type");
+            String locate = (String) t.get("product_locate");
+            int supplierId = Integer.parseInt(t.get("product_supplier_id")+"");
+            int amount = Integer.parseInt(t.get("product_amount")+"");
+            double price = Double.parseDouble(t.get("product_price")+"");
+            product.add(new DAOproduct(name, type, locate, supplierId, amount, price));
         }
+
         dbDisConnect();
-        return customer;
+        return product;
         //dont forget to change supid to supname
     }
 
