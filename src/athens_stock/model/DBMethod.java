@@ -178,20 +178,21 @@ public class DBMethod {
         //dont forget to change supid to supname
     }
 
-    public void addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
+    public boolean addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();
         String name = tfName.getText();
         String address = tfAddr.getText();
         String phone = tfPhone.getText();
         if (!(checkInjection(name) && checkInjection(address) && checkInjection(phone))) {
             dbDisConnect();
-            return;
+            return false;
         }
         String addCus = "INSERT INTO `SE-customer`(`customer_id`, `customer_name`, `customer_address`, `customer_phone`, `customer_status`)"
                 + " VALUES ('"+ customerIdGenerator() + "', '" + name + "', '"
                 + address + "', '" + phone + "' , 'active')";
         dbExecuteQuery(addCus);
         dbDisConnect();
+        return true;
     }
 
     public String customerIdGenerator() {
