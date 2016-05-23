@@ -53,6 +53,7 @@ public class MenuWarehouse extends JFrame {
         btnCheckStock = new javax.swing.JButton();
         btnAddAmount = new javax.swing.JButton();
         btnAddProduct = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
         lbWarehouse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,23 +66,25 @@ public class MenuWarehouse extends JFrame {
         lbWelcome.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lbWelcome.setText("Welcome to Stock Management System !");
 
-        btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 38)); // NOI18N
         btnCheckStock.setText("Check Stock");
         btnCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
+
                 jButton3MouseClicked(evt);
             }
         });
 
-        btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddAmount.setText("Add item amount");
         btnAddAmount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
+
                 jButton4MouseClicked(evt);
             }
         });
 
-        btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddProduct.setText("Add new product");
         btnAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,8 +92,17 @@ public class MenuWarehouse extends JFrame {
             }
         });
 
+        btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
+        btnOrder.setText("View Order");
+        btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-        lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+                jButton4MouseClicked(evt);
+            }
+        });
+
+
+        lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         lbWarehouse.setText("Warehouse");
 
 
@@ -111,18 +123,21 @@ public class MenuWarehouse extends JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbStockManage))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
+                        .addGap(220, 220, 220)
                         .addComponent(lbWarehouse))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
+                        .addGap(135, 135, 135)
                         .addComponent(btnAddAmount))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(200, 200, 200)
                         .addComponent(btnCheckStock))
                     .addGroup(layout.createSequentialGroup()
-                            .addGap(111, 111, 111)
-                            .addComponent(btnAddProduct)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                            .addGap(140, 140, 140)
+                            .addComponent(btnAddProduct))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(200, 200, 200)
+                                .addComponent(btnOrder))    )
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,12 +152,14 @@ public class MenuWarehouse extends JFrame {
                 .addComponent(lbWelcome)
                 .addGap(32, 32, 32)
                 .addComponent(lbWarehouse)
-                .addGap(68, 68, 68)
+                .addGap(60, 60, 60)
                 .addComponent(btnCheckStock)
-                .addGap(76, 76, 76)
+                .addGap(60, 60, 60)
                 .addComponent(btnAddAmount)
-                    .addGap(84, 84, 84)
+                    .addGap(60, 60, 60)
                     .addComponent(btnAddProduct)
+                    .addGap(60, 60, 60)
+                    .addComponent(btnOrder)
                 .addContainerGap(162, Short.MAX_VALUE))
         );
 
@@ -156,7 +173,8 @@ public class MenuWarehouse extends JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        AddItem add = new AddItem();
+
+        AddNewProduct add = new AddNewProduct();
         add.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4MouseClicked
@@ -169,6 +187,7 @@ public class MenuWarehouse extends JFrame {
     private javax.swing.JButton btnCheckStock;
     private javax.swing.JButton btnAddAmount;
     private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JLabel athensPic;
     private javax.swing.JLabel lbStockManage;
     private javax.swing.JLabel lbWarehouse;

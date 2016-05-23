@@ -12,6 +12,7 @@ public class OrderWarehouse extends JFrame {
     JFrame test;
     DefaultTableModel model;
 
+
     public OrderWarehouse(){
         initComponents();
         getContentPane().setBackground(Color.WHITE);
@@ -53,23 +54,24 @@ public class OrderWarehouse extends JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null}
-                },
-                new String [] {
-                        " ","OrderID", "Product name", "Amount", "Status"
-                }
-        ) {
-            Class[] types = new Class [] {
-                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(new String[] {"", "Order ID", "Product Name", "Amount", "Status"}, 0) {
+
+            boolean[] canEdit = new boolean[]{
+                    true, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+
+            @Override
+            public Class<?> getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
             }
         });
         jScrollPane1.setViewportView(jTable1);
