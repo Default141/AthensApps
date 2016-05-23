@@ -43,7 +43,8 @@ public class OrderWarehouse extends JFrame {
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
 
-        btnSearch = new JButton();
+        Action action = new btnSearchOrderAction();
+        btnSearch = new javax.swing.JButton(action);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,7 +110,12 @@ public class OrderWarehouse extends JFrame {
                                                                         .addGroup(layout.createSequentialGroup()
                                                                                 .addGap(6, 6, 6)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                                                        .addComponent(lbView)))))
+                                                                        .addComponent(lbView)
+                                                                        //.addGap(100, 100, 100)
+                                                                )
+
+                                                                .addComponent(btnSearch)
+                                                        )))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(77, 77, 77)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,7 +140,9 @@ public class OrderWarehouse extends JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnBack)
-                                        .addComponent(lbView))
+                                        .addComponent(lbView)
+                                        .addComponent(btnSearch)
+                                )
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
