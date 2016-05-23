@@ -72,12 +72,12 @@ public class DBMethod {
                 + key + "%'";
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
-            String no = (String) t.get("customer_id");
+            String id = (String) t.get("customer_id");
             String name = (String) t.get("customer_name");
             String phone = (String) t.get("customer_phone");
             String status = (String) t.get("customer_status");
             String address = (String) t.get("customer_address");
-            customer.add(new DAOcustomer(no, name, phone, status, address));
+            customer.add(new DAOcustomer(id, name, address, phone, status));
         }
         dbDisConnect();
         return customer;
