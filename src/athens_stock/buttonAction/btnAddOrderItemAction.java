@@ -31,9 +31,10 @@ public class btnAddOrderItemAction extends AbstractAction {
         //INSERT INTO `SE-order`(`order_id`, `order_name`, `order_customer_id`, `order_amount`, `order_price`, `order_date`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
         int confirm = JOptionPane.showConfirmDialog(null,"Are you sure","Message",JOptionPane.YES_NO_OPTION);
             if(confirm == JOptionPane.YES_OPTION){
-                 db.addOrderItem(cbbItem1, cbbItem2, cbbItem3, cbbItem4,
+                 boolean success = db.addOrderItem(cbbItem1, cbbItem2, cbbItem3, cbbItem4,
                 spItem1, spItem2, spItem3, spItem4);
-                JOptionPane.showMessageDialog(null,"Order Item Successful","Message",JOptionPane.INFORMATION_MESSAGE);
+                if(success)JOptionPane.showMessageDialog(null,"Order Item Successful","Message",JOptionPane.INFORMATION_MESSAGE);
+                else JOptionPane.showMessageDialog(null,"Please select your Item","Message",JOptionPane.INFORMATION_MESSAGE);
                 setSelectionDefault();
             }
     }
