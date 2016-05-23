@@ -1,6 +1,7 @@
 package athens_stock.view;
 
 import athens_stock.buttonAction.btnAddCustomerAction;
+import athens_stock.model.DBMethod;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -55,7 +56,14 @@ public class NewProduct extends JFrame {
 
         Action btnAddCusAction = new btnAddCustomerAction("Add New Customer", tfName, tfLoca, tfPType);
         btnAddCus = new javax.swing.JButton(btnAddCusAction);
+        
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
+        cbbsuppiler.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().retailerCombo()));
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
@@ -194,6 +202,11 @@ public class NewProduct extends JFrame {
     /**
      * @param args the command line arguments
      */
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       MenuWarehouse wareHouse = new MenuWarehouse();
+       this.dispose();
+       wareHouse.setVisible(true);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

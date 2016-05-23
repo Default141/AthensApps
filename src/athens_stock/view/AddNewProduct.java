@@ -106,9 +106,9 @@ public class AddNewProduct extends JFrame {
         SpinnerModel sm3 = new SpinnerNumberModel(0, 0, 999, 1);
         spnItem3 = new javax.swing.JSpinner(sm3);
 
-        cbbRetailer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Retailer 1", "Retailer 2", "Retailer 3", "Retailer 4" }));
+        cbbRetailer.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().retailerCombo()));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().comboType()));
 
         btnAdd.setText("Add Item");
 
