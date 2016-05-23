@@ -102,10 +102,10 @@ public class MenuSales extends JFrame {
                         .addGap(155, 155, 155)
                         .addComponent(btnOrder))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
+                        .addGap(170, 170, 170)
                         .addComponent(btnCustomer))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
+                        .addGap(115, 115, 115)
                         .addComponent(btnAddCustomer)))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
