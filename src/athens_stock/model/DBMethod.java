@@ -162,8 +162,22 @@ public class DBMethod {
         dbDisConnect();
 
         return item;
-    }//ได้หรอ???
+    }
 
-    //cbb.setSelectItem(temp[0][3].toString());
+    public String[] selectRetailer() {
+        dbConnect();
+        String sql = "select supplier_name from `SE-suppiler`";
+        System.out.println(sql);
+        ArrayList<HashMap> all = db.queryRows(sql);
+        String[] supplier = new String[all.size()];
+        int i = 0;
+        for (HashMap t : all) {
+            String name = (String) t.get("supplier_name");
+            supplier[i++] = name;
+        }
+        dbDisConnect();
+
+        return supplier;
+    }
 
 }
