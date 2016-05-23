@@ -5,6 +5,7 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnFrameAToFrameBAction;
 import athens_stock.buttonAction.btnWarehouseSearchStockAction;
 
 import java.awt.Color;
@@ -49,7 +50,9 @@ public class CheckStockWarehouse extends JFrame {
 
         athensPic = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
         btnBack = new javax.swing.JButton();
+
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -67,11 +70,6 @@ public class CheckStockWarehouse extends JFrame {
         jLabel2.setText("Stock Management System");
 
         btnBack.setText("Home");
-        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBackMouseClicked(evt);
-            }
-        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
@@ -178,15 +176,6 @@ public class CheckStockWarehouse extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
-        MenuWarehouse menu = new MenuWarehouse();
-        this.dispose();
-        menu.setVisible(true);
-    }//GEN-LAST:event_btnBackMouseClicked
-
-    public void setHomeAction(ActionListener action) {
-        btnBack.addActionListener(action);
-    }
 
     /**
      * @param args the command line arguments

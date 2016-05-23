@@ -26,7 +26,6 @@ public class CheckStockSalesController {
         checkstock.setVisible(true);
         setCheckStockSalesAction();
     }
-
     private void setCheckStockSalesAction() {
         checkstock.setHomeAction(new ActionListener() {
 
