@@ -52,7 +52,7 @@ public class MenuWarehouse extends JFrame {
         Action btnAddAmountAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
         btnAddAmount = new javax.swing.JButton(btnAddAmountAction);
 
-        Action btnAddProductAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
+        Action btnAddProductAction = new btnFrameAToFrameBAction(this, new NewProduct());
         btnAddProduct = new javax.swing.JButton(btnAddProductAction);
 
         Action btnOrderAction = new btnFrameAToFrameBAction(this, new OrderWarehouse());
