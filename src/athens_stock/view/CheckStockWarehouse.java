@@ -7,6 +7,7 @@ package athens_stock.view;
 
 import athens_stock.buttonAction.btnFrameAToFrameBAction;
 import athens_stock.buttonAction.btnWarehouseSearchStockAction;
+import athens_stock.model.DBMethod;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -58,7 +59,7 @@ public class CheckStockWarehouse extends JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Type1", "Type2", "Type3"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().comboType()));
 
         jLabel5 = new javax.swing.JLabel();
         
@@ -106,6 +107,7 @@ public class CheckStockWarehouse extends JFrame {
 
         Action btnCheckAction = new btnWarehouseSearchStockAction("Check", jTextField1, jComboBox1.getModel(), (DefaultTableModel) jTable1.getModel());
         btnCheck = new javax.swing.JButton();
+        btnCheck.addActionListener(btnCheckAction);
 
         jLabel4.setText("Search :");
 
