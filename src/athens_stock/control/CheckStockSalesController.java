@@ -5,6 +5,8 @@
  */
 package athens_stock.control;
 
+import athens_stock.buttonAction.btnSaleSearchStockAction;
+import athens_stock.model.DBMethod;
 import athens_stock.view.CheckStockSales;
 import athens_stock.view.MenuSales;
 import java.awt.event.ActionEvent;
@@ -19,6 +21,8 @@ public class CheckStockSalesController {
     
     public CheckStockSalesController(){
         checkstock = new CheckStockSales();
+        setComboType();
+        checkstock.setSearchAction(new btnSaleSearchStockAction("search", checkstock.getTextFieldSearch(), checkstock.getComboBoxModel(), checkstock.getTableModel()));
         checkstock.setVisible(true);
         setCheckStockSalesAction();
     }
@@ -31,6 +35,11 @@ public class CheckStockSalesController {
                 MenuSalesController menu = new MenuSalesController();
                 checkstock.dispose();            }
         });
+    }
+    
+    private void setComboType(){
+        String[] comboType = new DBMethod().comboType();
+        checkstock.setComboBoxType(comboType);
     }
     
 }

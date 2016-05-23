@@ -7,7 +7,10 @@ package athens_stock.view;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.Properties;
+import javax.swing.ComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -88,7 +91,7 @@ public class CheckStockSales extends JFrame {
 
         jLabel4.setText("Search :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Type1", "Type2", "Type3" }));
+
 
         btnUpdate.setText("Update item...\n");
 
@@ -166,6 +169,28 @@ public class CheckStockSales extends JFrame {
     public void setHomeAction(ActionListener action){
         btnBack.addActionListener(action);
     }
+    
+    public void setSearchAction(ActionListener action){
+        btnUpdate.addActionListener(action);
+    }
+     
+    public JTextField getTextFieldSearch(){
+        return tfSearch;
+    } 
+    
+    public void setComboBoxType(String[] type){
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(type));
+    }
+    
+    public ComboBoxModel<String> getComboBoxModel(){
+        return jComboBox1.getModel();
+    }
+    
+    public DefaultTableModel getTableModel(){
+        return (DefaultTableModel)jTable1.getModel();
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
