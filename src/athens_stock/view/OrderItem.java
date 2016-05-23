@@ -24,7 +24,8 @@ public class OrderItem extends JFrame {
     /**
      * Creates new form NewJFrame
      */
-    
+
+
     JFrame test;
     DBMethod db = new DBMethod();
 

@@ -1,5 +1,7 @@
 package athens_stock.view;
 
+import athens_stock.model.DBMethod;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -11,7 +13,12 @@ import java.awt.event.ActionListener;
 public class OrderWarehouse extends JFrame {
     JFrame test;
     DefaultTableModel model;
+    DBMethod dbMethod = new DBMethod();
 
+    public static void main(String args[]) {
+        OrderWarehouse orderItem = new OrderWarehouse();
+        orderItem.setVisible(true);
+    }
 
     public OrderWarehouse(){
         initComponents();
