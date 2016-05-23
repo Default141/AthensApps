@@ -5,6 +5,8 @@
  */
 package athens_stock.view;
 
+import athens_stock.control.MenuWarehouseController;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -69,38 +71,19 @@ public class MenuWarehouse extends JFrame {
 
         btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 38)); // NOI18N
         btnCheckStock.setText("Check Stock");
-        btnCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton3MouseClicked(evt);
-            }
-        });
 
         btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddAmount.setText("Add item amount");
-        btnAddAmount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
         btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddProduct.setText("Add new product");
-        btnAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
+
 
         btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnOrder.setText("View Order");
-        btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
 
         lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
@@ -167,6 +150,7 @@ public class MenuWarehouse extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         CheckStockWarehouse checkStock = new CheckStockWarehouse();
         checkStock.setVisible(true);
@@ -179,6 +163,7 @@ public class MenuWarehouse extends JFrame {
         add.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4MouseClicked
+
 
     public void setCheckStockAction(ActionListener action){
         btnCheckStock.addActionListener(action);
