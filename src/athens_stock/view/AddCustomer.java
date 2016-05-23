@@ -5,9 +5,11 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnAddCustomerAction;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
@@ -55,11 +57,13 @@ public class AddCustomer extends JFrame {
         lbAddCus = new javax.swing.JLabel();
         lbName = new javax.swing.JLabel();
         lbphone = new javax.swing.JLabel();
-        btnAddCus = new javax.swing.JButton();
         lbAddr = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
         tfPhone = new javax.swing.JTextField();
         tfAddr = new javax.swing.JTextField();
+
+        Action btnAddCusAction = new btnAddCustomerAction("Add New Customer", tfName, tfAddr, tfPhone);
+        btnAddCus = new javax.swing.JButton(btnAddCusAction);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

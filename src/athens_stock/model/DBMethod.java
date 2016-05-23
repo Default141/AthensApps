@@ -72,12 +72,12 @@ public class DBMethod {
                 + key + "%'";
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
-            String no = (String) t.get("customer_id");
+            String id = (String) t.get("customer_id");
             String name = (String) t.get("customer_name");
             String phone = (String) t.get("customer_phone");
             String status = (String) t.get("customer_status");
             String address = (String) t.get("customer_address");
-            customer.add(new DAOcustomer(no, name, phone, status, address));
+            customer.add(new DAOcustomer(id, name, address, phone, status));
         }
         dbDisConnect();
         return customer;
@@ -162,7 +162,6 @@ public class DBMethod {
         } else {
             re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "'";
         }
-        System.out.println(re);
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
             String name = (String) t.get("product_name");
@@ -188,12 +187,28 @@ public class DBMethod {
             dbDisConnect();
             return;
         }
-        String addCus = "INSERT INTO `SE-customer`(`id`, `customer_name`, `customer_address`, `customer_phone`)"
-                + "VALUES('" + name + "'" + "," + "'"
-                + address + "'" + "," + "'" + phone
-                + "'" + ")";
+        String addCus = "INSERT INTO `SE-customer`(`customer_id`, `customer_name`, `customer_address`, `customer_phone`, `customer_status`)"
+                + " VALUES ('"+ customerIdGenerator() + "', '" + name + "', '"
+                + address + "', '" + phone + "' , 'active')";
         dbExecuteQuery(addCus);
         dbDisConnect();
+    }
+
+    public String customerIdGenerator() {
+
+        String cusId = "";
+        String sql = "SELECT MAX(id) AS MAX FROM `SE-customer`";
+        ArrayList<HashMap> log = db.queryRows(sql);
+        for (HashMap l : log) {
+            try {
+                int id = Integer.parseInt((String) l.get("MAX")) + 1;
+                cusId = "c" + id;
+            } catch (NumberFormatException er) {
+
+            }
+        }
+
+        return cusId;
     }
 
     public String[] comboType() {
