@@ -180,6 +180,14 @@ public class DBMethod {
 
         return supplier;
     }
+    
+    public boolean checkInjection(String check){
+        String pattern = "^(((select)|(insert)|(update)|(delete))\\s+\\w+)|(select\\s*\\*\\s*\\w*)";
+        if(check.matches(pattern)) return false;
+        else{
+            return true;
+        }
+    }
 
     public String getSupplierNameByID(int id) {
         String supplierName = "";
