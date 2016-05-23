@@ -69,38 +69,19 @@ public class MenuWarehouse extends JFrame {
 
         btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 38)); // NOI18N
         btnCheckStock.setText("Check Stock");
-        btnCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton3MouseClicked(evt);
-            }
-        });
 
         btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddAmount.setText("Add item amount");
-        btnAddAmount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
         btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddProduct.setText("Add new product");
-        btnAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
+
 
         btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnOrder.setText("View Order");
-        btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
 
         lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
