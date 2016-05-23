@@ -24,7 +24,8 @@ public class OrderItem extends JFrame {
     /**
      * Creates new form NewJFrame
      */
-    
+
+
     JFrame test;
     DBMethod db = new DBMethod();
 
@@ -62,7 +63,9 @@ public class OrderItem extends JFrame {
 
         cbbCus = new javax.swing.JComboBox();
 
+        String[] customerID = db.customerIDCombo();
         String[] item = db.itemCombo();
+        cbbCus = new javax.swing.JComboBox(customerID); 
         cbbItem1 = new javax.swing.JComboBox(item);
         cbbItem2 = new javax.swing.JComboBox(item);
         cbbItem3 = new javax.swing.JComboBox(item);
@@ -224,7 +227,7 @@ public class OrderItem extends JFrame {
     }
     
     public void setConfirmButton(){
-        btnComfirm.addActionListener(new btnAddOrderItemAction(cbbItem1, cbbItem2, cbbItem3, cbbItem4, spinItem1, spinItem2, spinItem3, spinItem4));
+        btnComfirm.addActionListener(new btnAddOrderItemAction(cbbItem1, cbbItem2, cbbItem3, cbbItem4,cbbCus, spinItem1, spinItem2, spinItem3, spinItem4));
     }
     
     /**

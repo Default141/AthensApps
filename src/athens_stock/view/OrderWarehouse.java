@@ -1,5 +1,7 @@
 package athens_stock.view;
 
+import athens_stock.model.DBMethod;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -11,7 +13,12 @@ import java.awt.event.ActionListener;
 public class OrderWarehouse extends JFrame {
     JFrame test;
     DefaultTableModel model;
+    DBMethod dbMethod = new DBMethod();
 
+    public static void main(String args[]) {
+        OrderWarehouse orderItem = new OrderWarehouse();
+        orderItem.setVisible(true);
+    }
 
     public OrderWarehouse(){
         initComponents();
@@ -26,10 +33,6 @@ public class OrderWarehouse extends JFrame {
         return this.test;
     }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }
-
     private void initComponents() {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
@@ -39,6 +42,8 @@ public class OrderWarehouse extends JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
+
+        btnSearch = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +118,6 @@ public class OrderWarehouse extends JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGap(77, 77, 77)
                                                 .addComponent(btnCancel)))
-
                                 .addContainerGap(135, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -153,9 +157,12 @@ public class OrderWarehouse extends JFrame {
     public void setHomeAction(ActionListener action){
         btnBack.addActionListener(action);
     }
-    /**
-     * @param args the command line arguments
-     */
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       MenuWarehouse wareHouse = new MenuWarehouse();
+       this.dispose();
+       wareHouse.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -166,5 +173,6 @@ public class OrderWarehouse extends JFrame {
     private javax.swing.JLabel lbView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private JButton btnSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,8 +5,11 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnFrameAToFrameBAction;
+
 import java.awt.Color;
-import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  *
@@ -23,14 +26,6 @@ public class MenuWarehouse extends JFrame {
     public MenuWarehouse() {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
-    }
-    
-    public void setJFrame(JFrame f) {
-        test = f;
-    }
-
-    public JFrame getJFrame() {
-        return this.test;
     }
 
     public static void main(String[] args){
@@ -50,10 +45,19 @@ public class MenuWarehouse extends JFrame {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         lbWelcome = new javax.swing.JLabel();
-        btnCheckStock = new javax.swing.JButton();
-        btnAddAmount = new javax.swing.JButton();
-        btnAddProduct = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
+
+        Action btnCheckStockAction = new btnFrameAToFrameBAction(this, new CheckStockWarehouse());
+        btnCheckStock = new javax.swing.JButton(btnCheckStockAction);
+
+        Action btnAddAmountAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
+        btnAddAmount = new javax.swing.JButton(btnAddAmountAction);
+
+        Action btnAddProductAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
+        btnAddProduct = new javax.swing.JButton(btnAddProductAction);
+
+        Action btnOrderAction = new btnFrameAToFrameBAction(this, new OrderWarehouse());
+        btnOrder = new javax.swing.JButton(btnOrderAction);
+
         lbWarehouse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,38 +72,19 @@ public class MenuWarehouse extends JFrame {
 
         btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 38)); // NOI18N
         btnCheckStock.setText("Check Stock");
-        btnCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton3MouseClicked(evt);
-            }
-        });
 
         btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddAmount.setText("Add item amount");
-        btnAddAmount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
         btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnAddProduct.setText("Add new product");
-        btnAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
+
 
         btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
         btnOrder.setText("View Order");
-        btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
 
-                jButton4MouseClicked(evt);
-            }
-        });
 
 
         lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 42)); // NOI18N
@@ -165,17 +150,6 @@ public class MenuWarehouse extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        CheckStockWarehouse checkStock = new CheckStockWarehouse();
-        checkStock.setVisible(true);
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        AddNewProduct add = new AddNewProduct();
-        add.dispose();
-        add.setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
