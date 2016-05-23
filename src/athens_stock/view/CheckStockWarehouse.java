@@ -100,7 +100,6 @@ public class CheckStockWarehouse extends JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel5.setText("Check Stock");
 
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
