@@ -317,7 +317,7 @@ public class DBMethod {
     public String getSupplierNameByID(int id) {
         String supplierName = "";
         dbConnect();
-        String sql = "select supplier_name from `SE-supplier` where supplier_id = " + id;
+        String sql = "select supplier_name from `SE-supplier` where id = " + id;
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
             supplierName = (String) t.get("supplier_name");
