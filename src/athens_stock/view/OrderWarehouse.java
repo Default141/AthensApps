@@ -43,6 +43,9 @@ public class OrderWarehouse extends JFrame {
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
 
+        Action action = new btnSearchOrderAction();
+        btnSearch = new javax.swing.JButton(action);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
@@ -107,7 +110,12 @@ public class OrderWarehouse extends JFrame {
                                                                         .addGroup(layout.createSequentialGroup()
                                                                                 .addGap(6, 6, 6)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                                                        .addComponent(lbView)))))
+                                                                        .addComponent(lbView)
+                                                                        //.addGap(100, 100, 100)
+                                                                )
+
+                                                                .addComponent(btnSearch)
+                                                        )))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(77, 77, 77)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -116,7 +124,6 @@ public class OrderWarehouse extends JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGap(77, 77, 77)
                                                 .addComponent(btnCancel)))
-
                                 .addContainerGap(135, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -133,7 +140,9 @@ public class OrderWarehouse extends JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnBack)
-                                        .addComponent(lbView))
+                                        .addComponent(lbView)
+                                        .addComponent(btnSearch)
+                                )
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,9 +165,7 @@ public class OrderWarehouse extends JFrame {
     public void setHomeAction(ActionListener action){
         btnBack.addActionListener(action);
     }
-    /**
-     * @param args the command line arguments
-     */
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
        MenuWarehouse wareHouse = new MenuWarehouse();
        this.dispose();
@@ -174,5 +181,6 @@ public class OrderWarehouse extends JFrame {
     private javax.swing.JLabel lbView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private JButton btnSearch;
     // End of variables declaration//GEN-END:variables
 }

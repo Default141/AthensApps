@@ -83,6 +83,24 @@ public class DBMethod {
         return customer;
     }
 
+    public ArrayList<DAOorder> getAllOrder() {
+        ArrayList<DAOorder> order = new ArrayList<DAOorder>();
+        dbConnect();
+        String sql = "SELECT * FROM `SE-order` WHERE 1";
+
+        ArrayList<HashMap> all = db.queryRows(sql);
+        for (HashMap t : all) {
+            int id = Integer.parseInt((String) t.get("order_id"));
+            String name = (String) t.get("order_name");
+            String cusid = (String) t.get("customer_id");
+            int amount = Integer.parseInt((String) t.get("order_amount"));
+            String status = (String) t.get("status");
+            order.add(new DAOorder(id, name, cusid, amount, status));
+        }
+        dbDisConnect();
+        return order;
+    }
+
     public void addSupplier(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();
         String name = tfName.getText();
