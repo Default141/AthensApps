@@ -49,7 +49,7 @@ public class MenuSales extends JFrame {
         btnCheckStock = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
         btnSupplier = new javax.swing.JButton();
-        lbWarehouse = new javax.swing.JLabel();
+        lbSales = new javax.swing.JLabel();
         btnAddSupplier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,8 +71,8 @@ public class MenuSales extends JFrame {
         btnSupplier.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         btnSupplier.setText("Supplier");
 
-        lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        lbWarehouse.setText("Warehouse");
+        lbSales.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        lbSales.setText("Sales");
 
         btnAddSupplier.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         btnAddSupplier.setText("Add Supplier");
@@ -96,8 +96,8 @@ public class MenuSales extends JFrame {
                         .addGap(140, 140, 140)
                         .addComponent(btnCheckStock))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(lbWarehouse))
+                        .addGap(245, 245, 245)
+                        .addComponent(lbSales))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(btnOrder))
@@ -121,7 +121,7 @@ public class MenuSales extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ldWelcome)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(lbWarehouse)
+                .addComponent(lbSales)
                 .addGap(40, 40, 40)
                 .addComponent(btnCheckStock)
                 .addGap(30, 30, 30)
@@ -162,7 +162,7 @@ public class MenuSales extends JFrame {
     private javax.swing.JButton btnAddSupplier;
     private javax.swing.JLabel athensPic;
     private javax.swing.JLabel lbStockManage;
-    private javax.swing.JLabel lbWarehouse;
+    private javax.swing.JLabel lbSales;
     private javax.swing.JLabel ldWelcome;
     // End of variables declaration//GEN-END:variables
 }
