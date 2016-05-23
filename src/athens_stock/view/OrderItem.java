@@ -74,9 +74,7 @@ public class OrderItem extends JFrame {
         jLabel4 = new javax.swing.JLabel();
         cbbRetailer = new javax.swing.JComboBox(db.retailerCombo());
 
-        jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnComfirm = new javax.swing.JButton();
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
@@ -102,9 +100,7 @@ public class OrderItem extends JFrame {
 
         jLabel4.setText("From :");
 
-        jLabel10.setText("Other requirement :");
-
-        jButton1.setText("Confirmation page>>");
+        btnComfirm.setText("Confirmation page>>");
 
         javax.swing.GroupLayout datePanelLayout = new javax.swing.GroupLayout(dateLabel);
         dateLabel.setLayout(datePanelLayout);
@@ -125,9 +121,6 @@ public class OrderItem extends JFrame {
                 .addGap(151, 151, 151)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -146,7 +139,6 @@ public class OrderItem extends JFrame {
                         .addGap(209, 209, 209))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
@@ -167,7 +159,7 @@ public class OrderItem extends JFrame {
                                 .addComponent(jLabel2))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(209, 209, 209)
-                        .addComponent(jButton1)))
+                        .addComponent(btnComfirm)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -208,11 +200,8 @@ public class OrderItem extends JFrame {
                     .addComponent(jLabel4)
                     .addComponent(cbbRetailer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jLabel10)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnComfirm)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -231,12 +220,11 @@ public class OrderItem extends JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox cbbItem1;
     private javax.swing.JLabel dateLabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnComfirm;
     private javax.swing.JComboBox cbbItem2;
     private javax.swing.JComboBox cbbItem3;
     private javax.swing.JComboBox cbbRetailer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -246,6 +234,5 @@ public class OrderItem extends JFrame {
     private javax.swing.JSpinner spinItem1;
     private javax.swing.JSpinner spinItem2;
     private javax.swing.JSpinner spinItem3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
