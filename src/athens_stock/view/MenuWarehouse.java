@@ -5,11 +5,11 @@
  */
 package athens_stock.view;
 
-import athens_stock.control.MenuWarehouseController;
+import athens_stock.buttonAction.btnFrameAToFrameBAction;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
@@ -26,14 +26,6 @@ public class MenuWarehouse extends JFrame {
     public MenuWarehouse() {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
-    }
-    
-    public void setJFrame(JFrame f) {
-        test = f;
-    }
-
-    public JFrame getJFrame() {
-        return this.test;
     }
 
     public static void main(String[] args){
@@ -53,10 +45,19 @@ public class MenuWarehouse extends JFrame {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         lbWelcome = new javax.swing.JLabel();
-        btnCheckStock = new javax.swing.JButton();
-        btnAddAmount = new javax.swing.JButton();
-        btnAddProduct = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
+
+        Action btnCheckStockAction = new btnFrameAToFrameBAction(this, new CheckStockWarehouse());
+        btnCheckStock = new javax.swing.JButton(btnCheckStockAction);
+
+        Action btnAddAmountAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
+        btnAddAmount = new javax.swing.JButton(btnAddAmountAction);
+
+        Action btnAddProductAction = new btnFrameAToFrameBAction(this, new AddNewProduct());
+        btnAddProduct = new javax.swing.JButton(btnAddProductAction);
+
+        Action btnOrderAction = new btnFrameAToFrameBAction(this, new OrderWarehouse());
+        btnOrder = new javax.swing.JButton(btnOrderAction);
+
         lbWarehouse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -149,22 +150,6 @@ public class MenuWarehouse extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void setCheckStockAction(ActionListener action){
-        btnCheckStock.addActionListener(action);
-    }
-
-    public void setAddAmountAction(ActionListener action){
-        btnAddAmount.addActionListener(action);
-    }
-
-    public void setNewProductAction(ActionListener action){
-        btnAddProduct.addActionListener(action);
-    }
-
-    public void setViewOrderAction(ActionListener action){
-        btnOrder.addActionListener(action);
-    }
 
     /**
      * @param args the command line arguments
