@@ -43,6 +43,8 @@ public class OrderWarehouse extends JFrame {
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
 
+        btnSearch = new JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
@@ -116,7 +118,6 @@ public class OrderWarehouse extends JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGap(77, 77, 77)
                                                 .addComponent(btnCancel)))
-
                                 .addContainerGap(135, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -156,9 +157,7 @@ public class OrderWarehouse extends JFrame {
     public void setHomeAction(ActionListener action){
         btnBack.addActionListener(action);
     }
-    /**
-     * @param args the command line arguments
-     */
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
        MenuWarehouse wareHouse = new MenuWarehouse();
        this.dispose();
@@ -174,5 +173,6 @@ public class OrderWarehouse extends JFrame {
     private javax.swing.JLabel lbView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private JButton btnSearch;
     // End of variables declaration//GEN-END:variables
 }

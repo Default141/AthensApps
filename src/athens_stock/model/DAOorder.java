@@ -6,18 +6,26 @@ package athens_stock.model;
 public class DAOorder {
     private int id;
     private String name;
-    private int customerId;
+    private String  customerId;
     private int amount;
     private double price;
     private String date;
+    private String status;
 
-    public DAOorder(int id, String name, int customerId, int amount, double price, String date) {
+    public DAOorder(int id, String name, String customerId, int amount, String status) {
         this.id = id;
         this.name = name;
         this.customerId = customerId;
         this.amount = amount;
-        this.price = price;
-        this.date = date;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getId() {
@@ -36,11 +44,11 @@ public class DAOorder {
         this.name = name;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

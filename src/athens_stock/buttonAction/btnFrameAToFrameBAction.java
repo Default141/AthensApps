@@ -19,6 +19,5 @@ public class btnFrameAToFrameBAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         frameB.setVisible(true);
         frameA.dispose();
-        System.out.println(frameA + " >>>" + frameB);
     }
 }
