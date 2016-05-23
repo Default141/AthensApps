@@ -191,11 +191,6 @@ public class NewProduct extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String[] args){
-        NewProduct a = new NewProduct();
-        a.setVisible(true);
-    }
-
     /**
      * @param args the command line arguments
      */
