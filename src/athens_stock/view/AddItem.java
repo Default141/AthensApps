@@ -43,7 +43,10 @@ public class AddItem extends JFrame {
         
     }
     
-
+    public static void main(String args[]){
+        AddItem a = new AddItem();
+        a.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

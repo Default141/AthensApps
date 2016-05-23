@@ -145,17 +145,24 @@ public class DBMethod {
         dbDisConnect();
     }
 
-    public ArrayList<DAOproduct> getStock(JTextField tfSearch) {
+    public ArrayList<DAOproduct> getStock(JTextField tfSearch, String ptype) {
         dbConnect();
         ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
-        String key = (String) tfSearch.getText();
+        String key = (String) tfSearch.getText().trim();
         if(!checkInjection(key)){
             dbDisConnect();
             return product;
         }
-        String re = "SELECT * FROM `SE-product` WHERE product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
-                + "product_phone LIKE '%" + key + "%' OR product_status LIKE '%" + key + "%' OR product_address LIKE '%"
-                + key + "%'";
+        String re;
+        if(key.length() > 0){
+            re = "SELECT * FROM `SE-product` WHERE product_type = '"+ ptype + "' and (product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
+                    + "product_status LIKE '%" + key + "%' OR product_locate LIKE '%"
+                    + key + "%')";
+        }
+        else{
+            re = "SELECT * FROM `SE-product` WHERE product_type = '"+ ptype +"'";
+        }
+        System.out.println(re);
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
             String name = (String) t.get("product_name");
@@ -170,6 +177,37 @@ public class DBMethod {
         dbDisConnect();
         return product;
         //dont forget to change supid to supname
+    }
+
+    public void addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
+        dbConnect();
+        String name = tfName.getText();
+        String address = tfAddr.getText();
+        String phone = tfPhone.getText();
+        if(!(checkInjection(name) && checkInjection(address) && checkInjection(phone))){
+            dbDisConnect();
+            return;
+        }
+        String addCus = "INSERT INTO `SE-customer`(`id`, `customer_name`, `customer_address`, `customer_phone`)"
+                + "VALUES('" + name + "'" + "," + "'"
+                + address + "'" + "," + "'" + phone
+                + "'" + ")";
+        dbExecuteQuery(addCus);
+        dbDisConnect();
+    }
+
+    public String[] comboType() {
+        dbConnect();
+        String sql = "select distinct product_type from `SE-product`";
+        ArrayList<HashMap> all = db.queryRows(sql);
+        String[] item = new String[all.size()];
+        int i = 0;
+        for (HashMap t : all) {
+            String name = (String) t.get("product_type");
+            item[i++] = name;
+        }
+        dbDisConnect();
+        return item;
     }
 
     public ArrayList<DAOblacklistC> getBlacklistC(JTextField tfSearch) {
@@ -262,13 +300,13 @@ public class DBMethod {
 
     public String getSupplierNameByID(int id) {
         String supplierName = "";
-
-        String sql = "select supplier_name from 'SE-supplier' where supplier_id = " + id;
+        dbConnect();
+        String sql = "select supplier_name from `SE-supplier` where supplier_id = " + id;
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
             supplierName = (String) t.get("supplier_name");
         }
-
+        dbDisConnect();
         return supplierName;
     }
 
