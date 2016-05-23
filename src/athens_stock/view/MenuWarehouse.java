@@ -152,12 +152,13 @@ public class MenuWarehouse extends JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         CheckStockWarehouse checkStock = new CheckStockWarehouse();
         checkStock.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         AddItem add = new AddItem();
-        add.dispose();
         add.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     /**
