@@ -5,6 +5,8 @@
  */
 package athens_stock.view;
 
+import athens_stock.control.MenuWarehouseController;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -147,17 +149,6 @@ public class MenuWarehouse extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        CheckStockWarehouse checkStock = new CheckStockWarehouse();
-        checkStock.setVisible(true);
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        AddNewProduct add = new AddNewProduct();
-        add.dispose();
-        add.setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
 
     public void setCheckStockAction(ActionListener action){
         btnCheckStock.addActionListener(action);
