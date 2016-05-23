@@ -42,41 +42,51 @@ public class MenuWarehouse extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        athensPic = new javax.swing.JLabel();
+        lbStockManage = new javax.swing.JLabel();
+        lbWelcome = new javax.swing.JLabel();
+        btnCheckStock = new javax.swing.JButton();
+        btnAddAmount = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
+        lbWarehouse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
+        athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        jLabel2.setText("Stock Management System");
+        lbStockManage.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        lbStockManage.setText("Stock Management System");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel5.setText("Welcom to Stock Management System !");
+        lbWelcome.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lbWelcome.setText("Welcome to Stock Management System !");
 
-        jButton3.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jButton3.setText("Check Stock");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCheckStock.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnCheckStock.setText("Check Stock");
+        btnCheckStock.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jButton4.setText("Add new item");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddAmount.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnAddAmount.setText("Add item amount");
+        btnAddAmount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel3.setText("Warehouse");
+        btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        btnAddProduct.setText("Add new product");
+        btnAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+
+        lbWarehouse.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        lbWarehouse.setText("Warehouse");
 
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,20 +100,23 @@ public class MenuWarehouse extends JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel5))
+                                .addComponent(lbWelcome))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(athensPic)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2))))
+                                .addComponent(lbStockManage))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jLabel3))
+                        .addGap(210, 210, 210)
+                        .addComponent(lbWarehouse))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
-                        .addComponent(jButton4))
+                        .addComponent(btnAddAmount))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jButton3)))
+                        .addGap(170, 170, 170)
+                        .addComponent(btnCheckStock))
+                    .addGroup(layout.createSequentialGroup()
+                            .addGap(111, 111, 111)
+                            .addComponent(btnAddProduct)))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,18 +124,20 @@ public class MenuWarehouse extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(athensPic)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jLabel2)))
+                        .addComponent(lbStockManage)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(lbWelcome)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel3)
+                .addComponent(lbWarehouse)
                 .addGap(68, 68, 68)
-                .addComponent(jButton3)
+                .addComponent(btnCheckStock)
                 .addGap(76, 76, 76)
-                .addComponent(jButton4)
+                .addComponent(btnAddAmount)
+                    .addGap(84, 84, 84)
+                    .addComponent(btnAddProduct)
                 .addContainerGap(162, Short.MAX_VALUE))
         );
 
@@ -145,11 +160,12 @@ public class MenuWarehouse extends JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnCheckStock;
+    private javax.swing.JButton btnAddAmount;
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JLabel athensPic;
+    private javax.swing.JLabel lbStockManage;
+    private javax.swing.JLabel lbWarehouse;
+    private javax.swing.JLabel lbWelcome;
     // End of variables declaration//GEN-END:variables
 }
