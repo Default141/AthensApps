@@ -205,6 +205,36 @@ public class DBMethod {
         return product;
         //dont forget to change supid to supname
     }
+    
+    public ArrayList<DAOproduct> getStockWareHouse(JTextField tfSearch, String ptype) {
+        dbConnect();
+        ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
+        String key = (String) tfSearch.getText().trim();
+        if (!checkInjection(key)) {
+            dbDisConnect();
+            return product;
+        }
+        String re;
+        if (key.length() > 0) {
+            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "' and (product_name LIKE '%" + key +"%')";
+        } else {
+            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "'";
+        }
+        ArrayList<HashMap> all = db.queryRows(re);
+        for (HashMap t : all) {
+            String name = (String) t.get("product_name");
+            String type = (String) t.get("product_type");
+            String locate = (String) t.get("product_locate");
+            int supplierId = Integer.parseInt(t.get("product_supplier_id") + "");
+            int amount = Integer.parseInt(t.get("product_amount") + "");
+            double price = Double.parseDouble(t.get("product_price") + "");
+            product.add(new DAOproduct(name, type, locate, supplierId, amount, price));
+        }
+
+        dbDisConnect();
+        return product;
+        //dont forget to change supid to supname
+    }
 
     public boolean addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();

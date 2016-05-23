@@ -64,10 +64,6 @@ public class AddNewProduct extends JFrame {
         spnItem1 = new javax.swing.JSpinner();
         spnItem2 = new javax.swing.JSpinner();
         spnItem3 = new javax.swing.JSpinner();
-        lbFrom = new javax.swing.JLabel();
-        lbType = new javax.swing.JLabel();
-        cbbRetailer = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
         btnAdd = new javax.swing.JButton();
         
          btnBack.addActionListener(new ActionListener() {
@@ -93,10 +89,6 @@ public class AddNewProduct extends JFrame {
 
         lbAmount.setText("Amount :");
 
-        lbFrom.setText("From :");
-
-        lbType.setText("Type :");
-
         SpinnerModel sm1 = new SpinnerNumberModel(0, 0, 999, 1);
         spnItem1 = new javax.swing.JSpinner(sm1);
 
@@ -105,10 +97,6 @@ public class AddNewProduct extends JFrame {
 
         SpinnerModel sm3 = new SpinnerNumberModel(0, 0, 999, 1);
         spnItem3 = new javax.swing.JSpinner(sm3);
-
-        cbbRetailer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Retailer 1", "Retailer 2", "Retailer 3", "Retailer 4" }));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAdd.setText("Add Item");
 
@@ -160,13 +148,9 @@ public class AddNewProduct extends JFrame {
                         .addGap(155, 155, 155)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbType))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(75, 75, 75)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbbRetailer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lbFrom))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -201,15 +185,6 @@ public class AddNewProduct extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spnItem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbbItem3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbFrom)
-                    .addComponent(cbbRetailer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbType)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE))
                 .addGap(18, 18, 18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -242,15 +217,11 @@ public class AddNewProduct extends JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JComboBox cbbItem2;
     private javax.swing.JComboBox cbbItem3;
-    private javax.swing.JComboBox cbbRetailer;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel athensPic;
     private javax.swing.JLabel lbStockManage;
-    private javax.swing.JLabel lbFrom;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbItem2Add;
     private javax.swing.JLabel lbAmount;
-    private javax.swing.JLabel lbType;
     private javax.swing.JSpinner spnItem1;
     private javax.swing.JSpinner spnItem2;
     private javax.swing.JSpinner spnItem3;
