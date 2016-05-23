@@ -108,36 +108,37 @@ public class DBMethod {
         String item2 = (String) cbbItem2.getSelectedItem();
         String item3 = (String) cbbItem3.getSelectedItem();
         String item4 = (String) cbbItem4.getSelectedItem();
+        String status = "waiting";
 
-        String amount1 = (String) spItem1.getValue();
-        String amount2 = (String) spItem2.getValue();
-        String amount3 = (String) spItem3.getValue();
-        String amount4 = (String) spItem4.getValue();
+        int amount1 =  (Integer)spItem1.getValue();
+        int amount2 = (Integer)spItem2.getValue();
+        int amount3 =  (Integer)spItem3.getValue();
+        int amount4 =  (Integer)spItem4.getValue();
 
-        if (!item1.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item1 + ", " + amount1 + " )";
+        if (item1 != null) {
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
+                    "VALUES ('" + item1 + "', '" + amount1 + "' , '" + status + "')";
             System.out.println("item1");
             dbExecuteQuery(sql);
         }
 
-        if (!item2.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item2 + ", " + amount2 + " )";
+        if (item2 != null) {
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
+                    "VALUES ('" + item2 + "', '" + amount2 + "' , '" + status + "')";
             System.out.println("item2");
             dbExecuteQuery(sql);
         }
 
-        if (!item3.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item3 + ", " + amount3 + " )";
+        if (item3 != null) {
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
+                    "VALUES ('" + item3 + "', '" + amount3 + "' , '" + status + "')";
             System.out.println("item3");
             dbExecuteQuery(sql);
         }
 
-        if (!item4.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item4 + ", " + amount4 + " )";
+        if (item4 != null) {
+            String sql = "INSERT INTO `SE-order`(order_name, order_amount,status) " +
+                    "VALUES ('" + item4 + "', '" + amount4 + "' , '" + status + "')";
             System.out.println("item4");
             dbExecuteQuery(sql);
         }

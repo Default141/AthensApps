@@ -5,6 +5,7 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnAddOrderItemAction;
 import athens_stock.model.DBMethod;
 
 import java.awt.Color;
@@ -29,6 +30,7 @@ public class OrderItem extends JFrame {
 
     public OrderItem() {
         initComponents();
+        setConfirmButton();
         getContentPane().setBackground(Color.WHITE);
     }
     
@@ -209,6 +211,10 @@ public class OrderItem extends JFrame {
 
     public void setHomeAction(ActionListener action){
         btnBack.addActionListener(action);
+    }
+    
+    public void setConfirmButton(){
+        btnComfirm.addActionListener(new btnAddOrderItemAction(cbbItem1, cbbItem2, cbbItem3, cbbItem4, spinItem1, spinItem2, spinItem3, spinItem4));
     }
     /**
      * @param args the command line arguments
