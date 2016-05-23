@@ -29,11 +29,6 @@ public class OrderWarehouse extends JFrame {
         // TODO add your handling code here:
     }
 
-    public static void main(String[] args){
-        OrderWarehouse o = new OrderWarehouse();
-        o.setVisible(true);
-    }
-
     private void initComponents() {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
