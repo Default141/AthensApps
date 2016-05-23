@@ -38,7 +38,7 @@ public class MenuSalesController {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-               SupplierController supplier = new SupplierController();
+               CustomerController cuustomer = new CustomerController();
                 menusale.dispose(); 
             }
         });
