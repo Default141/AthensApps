@@ -153,7 +153,6 @@ public class DBMethod {
     public String[] itemCombo() {
         dbConnect();
         String sql = "select product_name from `SE-product`";
-        System.out.println(sql);
         ArrayList<HashMap> all = db.queryRows(sql);
         String[] item = new String[all.size()+1];
         int i = 1;
@@ -180,6 +179,18 @@ public class DBMethod {
         dbDisConnect();
 
         return supplier;
+    }
+
+    public String getSupplierNameByID(int id) {
+        String supplierName = "";
+
+        String sql = "select supplier_name from 'SE-supplier' where supplier_id = " + id;
+        ArrayList<HashMap> all = db.queryRows(sql);
+        for (HashMap t : all) {
+            supplierName = (String) t.get("supplier_name");
+        }
+
+        return supplierName;
     }
 
 }
