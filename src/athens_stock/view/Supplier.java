@@ -87,6 +87,15 @@ public class Supplier extends JFrame {
                         "ID", "Name", "Phone", "Address"
                 }
         ) {
+
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+
             Class[] types = new Class [] {
                     java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };

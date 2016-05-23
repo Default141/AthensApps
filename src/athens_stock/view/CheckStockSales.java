@@ -76,6 +76,14 @@ public class CheckStockSales extends JFrame {
                  "Product list", "Supplier", "Amount", "Price"
             }
         ) {
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
