@@ -1,5 +1,6 @@
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnSearchOrderAction;
 import athens_stock.model.DBMethod;
 
 import javax.swing.*;
@@ -43,9 +44,6 @@ public class OrderWarehouse extends JFrame {
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
 
-        Action action = new btnSearchOrderAction();
-        btnSearch = new javax.swing.JButton(action);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
@@ -81,6 +79,9 @@ public class OrderWarehouse extends JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+
+        Action action = new btnSearchOrderAction((DefaultTableModel) jTable1.getModel());
+        btnSearch = new javax.swing.JButton(action);
 
         btnCancel.setText("Cancel");
         btnUpdate.setText("Delivered");
