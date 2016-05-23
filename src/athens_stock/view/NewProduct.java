@@ -55,7 +55,7 @@ public class NewProduct extends JFrame {
         lbPrice = new javax.swing.JLabel();
 
         Action btnAddCusAction = new btnAddCustomerAction("Add New Customer", tfName, tfLoca, tfPType);
-        btnAddCus = new javax.swing.JButton(btnAddCusAction);
+
         
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +64,8 @@ public class NewProduct extends JFrame {
         });
 
         cbbsuppiler.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().retailerCombo()));
+        btnAddProduct = new javax.swing.JButton(btnAddCusAction);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         athensPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/athens_stock/res/athens.jpg"))); // NOI18N
@@ -74,7 +76,7 @@ public class NewProduct extends JFrame {
         btnBack.setText("Home");
 
         lbAddCus.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        lbAddCus.setText("Add Product");
+        lbAddCus.setText("Add new Product");
 
         lbName.setText("Product name :");
 
@@ -83,8 +85,8 @@ public class NewProduct extends JFrame {
         lbAmount.setText("Amount :");
         lbPrice.setText("Price :");
 
-        btnAddCus.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnAddCus.setText("Add new product");
+        btnAddProduct.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btnAddProduct.setText("Add");
 
         lbLoca.setText("Product zone :");
 
@@ -131,7 +133,7 @@ public class NewProduct extends JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(240, 240, 240)
-                                                .addComponent(btnAddCus))
+                                                .addComponent(btnAddProduct))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
@@ -187,7 +189,7 @@ public class NewProduct extends JFrame {
                                                         .addComponent(lbPrice)
                                                         .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(50, 50, 50)
-                                                .addComponent(btnAddCus)
+                                                .addComponent(btnAddProduct)
                                                 .addContainerGap(145, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(athensPic, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +213,7 @@ public class NewProduct extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnAddCus;
+    private javax.swing.JButton btnAddProduct;
     private javax.swing.JLabel athensPic;
     private javax.swing.JLabel lbLoca;
     private javax.swing.JLabel jLabel2;
