@@ -45,6 +45,7 @@ public class AddCustomer extends JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+
     private void initComponents() {
 
         athensPic = new javax.swing.JLabel();
