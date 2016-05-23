@@ -23,7 +23,7 @@ public class OrderItemController {
     }
     
     private void setOrderItemAction(){
-        orderitem.setHomeActiom(new ActionListener() {
+        orderitem.setHomeAction(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {

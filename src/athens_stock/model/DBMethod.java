@@ -164,9 +164,9 @@ public class DBMethod {
         return item;
     }
 
-    public String[] selectRetailer() {
+    public String[] retailerCombo() {
         dbConnect();
-        String sql = "select supplier_name from `SE-suppiler`";
+        String sql = "select supplier_name from `SE-supplier`";
         System.out.println(sql);
         ArrayList<HashMap> all = db.queryRows(sql);
         String[] supplier = new String[all.size()];
