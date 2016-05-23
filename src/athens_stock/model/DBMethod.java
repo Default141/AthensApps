@@ -155,8 +155,8 @@ public class DBMethod {
         String sql = "select product_name from `SE-product`";
         System.out.println(sql);
         ArrayList<HashMap> all = db.queryRows(sql);
-        String[] item = new String[all.size()];
-        int i = 0;
+        String[] item = new String[all.size()+1];
+        int i = 1;
         for (HashMap t : all) {
             String name = (String) t.get("product_name");
             item[i++] = name;
