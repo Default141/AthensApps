@@ -30,7 +30,7 @@ public class OrderItem extends JFrame {
     
     JFrame test;
     DBMethod db = new DBMethod();
-    
+
     public OrderItem() {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
@@ -61,7 +61,7 @@ public class OrderItem extends JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbbItem1 = new javax.swing.JComboBox();
+        cbbItem1 = new javax.swing.JComboBox(db.itemCombo());
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jSpinner1 = new javax.swing.JSpinner();
