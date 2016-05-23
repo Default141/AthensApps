@@ -8,6 +8,8 @@ package athens_stock.view;
 import athens_stock.model.DBMethod;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -67,6 +69,13 @@ public class AddNewProduct extends JFrame {
         cbbRetailer = new javax.swing.JComboBox();
         jComboBox5 = new javax.swing.JComboBox();
         btnAdd = new javax.swing.JButton();
+        
+         btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               btnBackActionPerformed(e);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,13 +222,13 @@ public class AddNewProduct extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
        MenuWarehouse wareHouse = new MenuWarehouse();
        this.dispose();
        wareHouse.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddActionPerform(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+ 
     }//GEN-LAST:event_btnBackMouseClicked
 
     /**

@@ -33,10 +33,6 @@ public class OrderWarehouse extends JFrame {
         return this.test;
     }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }
-
     private void initComponents() {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
@@ -163,6 +159,11 @@ public class OrderWarehouse extends JFrame {
     /**
      * @param args the command line arguments
      */
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       MenuWarehouse wareHouse = new MenuWarehouse();
+       this.dispose();
+       wareHouse.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

@@ -9,6 +9,7 @@ import athens_stock.buttonAction.btnFrameAToFrameBAction;
 import athens_stock.buttonAction.btnWarehouseSearchStockAction;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -52,7 +53,6 @@ public class CheckStockWarehouse extends JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         btnBack = new javax.swing.JButton();
-
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -61,6 +61,13 @@ public class CheckStockWarehouse extends JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Type1", "Type2", "Type3"}));
 
         jLabel5 = new javax.swing.JLabel();
+        
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               btnBackActionPerformed(e);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,6 +182,12 @@ public class CheckStockWarehouse extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       MenuWarehouse wareHouse = new MenuWarehouse();
+       this.dispose();
+       wareHouse.setVisible(true);
+    }//GE
 
 
     /**
