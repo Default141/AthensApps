@@ -43,8 +43,8 @@ public class OrderWarehouse extends JFrame {
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
 
-        Action action = new btnSearchOrderAction();
-        btnSearch = new javax.swing.JButton(action);
+       // Action action = new btnSearchOrderAction();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,7 +96,7 @@ public class OrderWarehouse extends JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(21, 21, 21)
+                                                .addGap(35, 35, 35)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(athensPic)
@@ -111,24 +111,23 @@ public class OrderWarehouse extends JFrame {
                                                                                 .addGap(6, 6, 6)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                                                                         .addComponent(lbView)
-                                                                        //.addGap(100, 100, 100)
-                                                                )
-
+                                                                )))
                                                                 .addComponent(btnSearch)
-                                                        )))
+
+                                                        )
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(77, 77, 77)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGap(50, 50, 50)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGap(140, 140, 140)
                                                 .addComponent(btnUpdate)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGap(77, 77, 77)
+                                                .addGap(50, 50, 50)
                                                 .addComponent(btnCancel)))
-                                .addContainerGap(135, Short.MAX_VALUE))
+                                .addContainerGap(105, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55))
+                                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +146,7 @@ public class OrderWarehouse extends JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnCancel)
                                 .addGap(22, 22, 22)
