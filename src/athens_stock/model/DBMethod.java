@@ -86,7 +86,7 @@ public class DBMethod {
     public ArrayList<DAOorder> getAllOrder() {
         ArrayList<DAOorder> order = new ArrayList<DAOorder>();
         dbConnect();
-        String sql = "SELECT * FROM `SE-order` WHERE 1";
+        String sql = "SELECT * FROM `SE-order` WHERE status = 'waiting'";
 
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
@@ -399,4 +399,21 @@ public class DBMethod {
         return item;
     }
 
+    public void deliver(int orderId) {
+        dbConnect();
+
+        String sql = "UPDATE `SE-order` SET `status`= 'delivered' WHERE `order_id`= " + orderId;
+        dbExecuteQuery(sql);
+
+        dbDisConnect();
+    }
+
+    public void cancelOrder(int orderId) {
+        dbConnect();
+
+        String sql = "UPDATE `SE-order` SET `status`= 'cancel' WHERE `order_id`= " + orderId;
+        dbExecuteQuery(sql);
+
+        dbDisConnect();
+    }
 }

@@ -1,5 +1,7 @@
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnCancelOrder;
+import athens_stock.buttonAction.btnDeliverAction;
 import athens_stock.buttonAction.btnSearchOrderAction;
 import athens_stock.model.DBMethod;
 
@@ -38,8 +40,7 @@ public class OrderWarehouse extends JFrame {
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lbView = new javax.swing.JLabel();
@@ -58,10 +59,11 @@ public class OrderWarehouse extends JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(new String[] {"", "Order ID", "Product Name", "Amount", "Status"}, 0) {
+        DefaultTableModel tModel;
+        tModel = new DefaultTableModel() {
 
             boolean[] canEdit = new boolean[]{
-                    true, false, false, false, false, false
+                    true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -77,11 +79,26 @@ public class OrderWarehouse extends JFrame {
                         return String.class;
                 }
             }
-        });
+        };
+
+        jTable1.setModel(tModel);
+
+        tModel.addColumn("Select");
+        tModel.addColumn("Order ID");
+        tModel.addColumn("Product Name");
+        tModel.addColumn("Amount");
+        tModel.addColumn("Status");
+
         jScrollPane1.setViewportView(jTable1);
 
         Action action = new btnSearchOrderAction((DefaultTableModel) jTable1.getModel());
         btnSearch = new javax.swing.JButton(action);
+
+        Action action2 = new btnDeliverAction(jTable1, btnSearch);
+        btnUpdate = new javax.swing.JButton(action2);
+
+        Action action3 = new btnCancelOrder(jTable1, btnSearch);
+        btnCancel = new javax.swing.JButton(action3);
 
         btnCancel.setText("Cancel");
         btnUpdate.setText("Delivered");
