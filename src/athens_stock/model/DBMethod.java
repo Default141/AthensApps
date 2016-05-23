@@ -39,9 +39,16 @@ public class DBMethod {
 
     public void addSupplier(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();
+        String name = tfName.getText();
+        String address = tfAddr.getText();
+        String phone = tfPhone.getText();
+        if(!(checkInjection(name) && checkInjection(address) && checkInjection(phone))){
+            dbDisConnect();
+            return;
+        }
         String addCus = "INSERT INTO SE-supplier(supplier_name, supplier_address,supplier_phone)"
-                + "VALUES('" + tfName.getText() + "'" + "," + "'"
-                + tfAddr.getText() + "'" + "," + "'" + tfPhone.getText()
+                + "VALUES('" + name + "'" + "," + "'"
+                + address + "'" + "," + "'" + phone
                 + "'" + ")";
         dbExecuteQuery(addCus);
         dbDisConnect();
@@ -49,11 +56,15 @@ public class DBMethod {
 
     public ArrayList<DAOsupplier> getAllSupplier(JTextField tfSearch) {
         dbConnect();
+        ArrayList<DAOsupplier> supplier = new ArrayList<DAOsupplier>();
         String key = (String) tfSearch.getText();
+        if(!checkInjection(key)){
+            dbDisConnect();
+            return supplier;
+        }
         String re = "SELECT * FROM SE-supplier WHERE suppilier_id LIKE '%" + key + "%' OR supplier_name LIKE '%" + key + "%' OR "
                 + "supplier_phone LIKE '%" + key + "%' OR supplier_status LIKE '%" + key + "%' OR supplier_address LIKE '%"
                 + key + "%'";
-        ArrayList<DAOsupplier> supplier = new ArrayList<DAOsupplier>();
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
             String no = (String) t.get("supplier_id");
@@ -68,12 +79,16 @@ public class DBMethod {
     }
 
     public ArrayList<DAOcustomer> getAllCustomer(JTextField tfSearch) {
+         ArrayList<DAOcustomer> customer = new ArrayList<DAOcustomer>();
         dbConnect();
-        String key = (String) tfSearch.getText();
+        String key =  tfSearch.getText();
+        if(!checkInjection(key)){
+            dbDisConnect();
+            return customer;
+        }
         String re = "SELECT * FROM SE-customer WHERE customer_id LIKE '%" + key + "%' OR customer_name LIKE '%" + key + "%' OR "
                 + "customer_phone LIKE '%" + key + "%' OR customer_status LIKE '%" + key + "%' OR customer_address LIKE '%"
                 + key + "%'";
-        ArrayList<DAOcustomer> customer = new ArrayList<DAOcustomer>();
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
             String no = (String) t.get("customer_id");
@@ -89,11 +104,15 @@ public class DBMethod {
 
     public ArrayList<DAOproduct> getStock(JTextField tfSearch) {
         dbConnect();
+        ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
         String key = (String) tfSearch.getText();
+        if(!checkInjection(key)){
+            dbDisConnect();
+            return product;
+        }
         String re = "SELECT * FROM `SE-product` WHERE product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
                 + "product_phone LIKE '%" + key + "%' OR product_status LIKE '%" + key + "%' OR product_address LIKE '%"
                 + key + "%'";
-        ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
         ArrayList<HashMap> all = db.queryRows(re);
         for (HashMap t : all) {
             String name = (String) t.get("product_name");
@@ -112,13 +131,17 @@ public class DBMethod {
 
     public ArrayList<DAOblacklistC> getBlacklistC(JTextField tfSearch) {
         dbConnect();
+        ArrayList<DAOblacklistC> customer = new ArrayList<DAOblacklistC>();
         String key = (String) tfSearch.getText();
+        if(!checkInjection(key)){
+            dbDisConnect();
+            return customer;
+        }
         String sql = "SELECT blacklist_id, customer_name, blacklist_reason " +
                 "FROM `SE-blacklistC`, `SE-customer`" +
                 "WHERE  WHERE blacklist_id = customer_id AND " +
                 "blacklist_id LIKE '%" + key + "%' OR blacklist_reason LIKE '%" + key + "%'" +
                 "OR customer_name LIKE '%" + key + "%'";
-        ArrayList<DAOblacklistC> customer = new ArrayList<DAOblacklistC>();
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
             String no = (String) t.get("blacklist_id");
@@ -132,13 +155,17 @@ public class DBMethod {
 
     public ArrayList<DAOblacklistS> getBlacklistS(JTextField tfSearch) {
         dbConnect();
+        ArrayList<DAOblacklistS> supplier = new ArrayList<DAOblacklistS>();
         String key = (String) tfSearch.getText();
+        if(!checkInjection(key)){
+            dbDisConnect();
+            return supplier;
+        }
         String sql = "SELECT blacklist_id, supplier_name, blacklist_reason " +
                 "FROM `SE-blacklistS`, `SE-supplier`" +
                 "WHERE  WHERE blacklist_id = supplier_name AND " +
                 "blacklist_id LIKE '%" + key + "%' OR blacklist_reason LIKE '%" + key + "%'" +
                 "OR supplier_name LIKE '%" + key + "%'";
-        ArrayList<DAOblacklistS> supplier = new ArrayList<DAOblacklistS>();
         ArrayList<HashMap> all = db.queryRows(sql);
         for (HashMap t : all) {
             String no = (String) t.get("blacklist_id");
@@ -184,6 +211,7 @@ public class DBMethod {
     
     public boolean checkInjection(String check){
         String pattern = "^(((select)|(insert)|(update)|(delete))\\s+\\w+)|(select\\s*\\*\\s*\\w*)";
+        check = check.toLowerCase().trim();
         if(check.matches(pattern)) return false;
         else{
             return true;
