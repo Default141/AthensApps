@@ -32,8 +32,10 @@ public class btnAddCustomerAction extends AbstractAction {
         }
 
         int answer = JOptionPane.showConfirmDialog(null, "Confirm Add new customer", "Add new customer?", YES_NO_OPTION);
-        if (answer == YES_OPTION)
-            db.addCustomer(tfName, tfAddr, tfPhone);
+        if (answer == YES_OPTION) {
+            if (db.addCustomer(tfName, tfAddr, tfPhone))
+                JOptionPane.showMessageDialog(null, "Add new customer Successful", "Message", JOptionPane.INFORMATION_MESSAGE);
+        }
         tfName.setText("");
         tfAddr.setText("");
         tfPhone.setText("");
