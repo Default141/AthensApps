@@ -39,7 +39,7 @@ public class DBMethod {
         dbConnect();
         ArrayList<DAOsupplier> supplier = new ArrayList<DAOsupplier>();
         String key = (String) tfSearch.getText();
-        if(!checkInjection(key)){
+        if (!checkInjection(key)) {
             dbDisConnect();
             return supplier;
         }
@@ -60,14 +60,14 @@ public class DBMethod {
     }
 
     public ArrayList<DAOcustomer> getAllCustomer(JTextField tfSearch) {
-         ArrayList<DAOcustomer> customer = new ArrayList<DAOcustomer>();
+        ArrayList<DAOcustomer> customer = new ArrayList<DAOcustomer>();
         dbConnect();
-        String key =  tfSearch.getText();
-        if(!checkInjection(key)){
+        String key = tfSearch.getText();
+        if (!checkInjection(key)) {
             dbDisConnect();
             return customer;
         }
-        String re = "SELECT * FROM SE-customer WHERE customer_id LIKE '%" + key + "%' OR customer_name LIKE '%" + key + "%' OR "
+        String re = "SELECT * FROM `SE-customer` WHERE `customer_id` LIKE '%" + key + "%' OR customer_name LIKE '%" + key + "%' OR "
                 + "customer_phone LIKE '%" + key + "%' OR customer_status LIKE '%" + key + "%' OR customer_address LIKE '%"
                 + key + "%'";
         ArrayList<HashMap> all = db.queryRows(re);
@@ -88,7 +88,7 @@ public class DBMethod {
         String name = tfName.getText();
         String address = tfAddr.getText();
         String phone = tfPhone.getText();
-        if(!(checkInjection(name) && checkInjection(address) && checkInjection(phone))){
+        if (!(checkInjection(name) && checkInjection(address) && checkInjection(phone))) {
             dbDisConnect();
             return;
         }
@@ -150,18 +150,17 @@ public class DBMethod {
         dbConnect();
         ArrayList<DAOproduct> product = new ArrayList<DAOproduct>();
         String key = (String) tfSearch.getText().trim();
-        if(!checkInjection(key)){
+        if (!checkInjection(key)) {
             dbDisConnect();
             return product;
         }
         String re;
-        if(key.length() > 0){
-            re = "SELECT * FROM `SE-product` WHERE product_type = '"+ ptype + "' and (product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
+        if (key.length() > 0) {
+            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "' and (product_id LIKE '%" + key + "%' OR product_name LIKE '%" + key + "%' OR "
                     + "product_status LIKE '%" + key + "%' OR product_locate LIKE '%"
                     + key + "%')";
-        }
-        else{
-            re = "SELECT * FROM `SE-product` WHERE product_type = '"+ ptype +"'";
+        } else {
+            re = "SELECT * FROM `SE-product` WHERE product_type = '" + ptype + "'";
         }
         System.out.println(re);
         ArrayList<HashMap> all = db.queryRows(re);
@@ -169,9 +168,9 @@ public class DBMethod {
             String name = (String) t.get("product_name");
             String type = (String) t.get("product_type");
             String locate = (String) t.get("product_locate");
-            int supplierId = Integer.parseInt(t.get("product_supplier_id")+"");
-            int amount = Integer.parseInt(t.get("product_amount")+"");
-            double price = Double.parseDouble(t.get("product_price")+"");
+            int supplierId = Integer.parseInt(t.get("product_supplier_id") + "");
+            int amount = Integer.parseInt(t.get("product_amount") + "");
+            double price = Double.parseDouble(t.get("product_price") + "");
             product.add(new DAOproduct(name, type, locate, supplierId, amount, price));
         }
 
@@ -185,7 +184,7 @@ public class DBMethod {
         String name = tfName.getText();
         String address = tfAddr.getText();
         String phone = tfPhone.getText();
-        if(!(checkInjection(name) && checkInjection(address) && checkInjection(phone))){
+        if (!(checkInjection(name) && checkInjection(address) && checkInjection(phone))) {
             dbDisConnect();
             return;
         }
@@ -215,7 +214,7 @@ public class DBMethod {
         dbConnect();
         ArrayList<DAOblacklistC> customer = new ArrayList<DAOblacklistC>();
         String key = (String) tfSearch.getText();
-        if(!checkInjection(key)){
+        if (!checkInjection(key)) {
             dbDisConnect();
             return customer;
         }
@@ -239,7 +238,7 @@ public class DBMethod {
         dbConnect();
         ArrayList<DAOblacklistS> supplier = new ArrayList<DAOblacklistS>();
         String key = (String) tfSearch.getText();
-        if(!checkInjection(key)){
+        if (!checkInjection(key)) {
             dbDisConnect();
             return supplier;
         }
@@ -263,7 +262,7 @@ public class DBMethod {
         dbConnect();
         String sql = "select product_name from `SE-product`";
         ArrayList<HashMap> all = db.queryRows(sql);
-        String[] item = new String[all.size()+1];
+        String[] item = new String[all.size() + 1];
         int i = 1;
         for (HashMap t : all) {
             String name = (String) t.get("product_name");
@@ -289,12 +288,12 @@ public class DBMethod {
 
         return supplier;
     }
-    
-    public boolean checkInjection(String check){
+
+    public boolean checkInjection(String check) {
         String pattern = "^(((select)|(insert)|(update)|(delete))\\s+\\w+)|(select\\s*\\*\\s*\\w*)";
         check = check.toLowerCase().trim();
-        if(check.matches(pattern)) return false;
-        else{
+        if (check.matches(pattern)) return false;
+        else {
             return true;
         }
     }

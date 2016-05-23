@@ -1,5 +1,6 @@
 package athens_stock.buttonAction;
 
+import athens_stock.model.DAOcustomer;
 import athens_stock.model.DAOsupplier;
 import athens_stock.model.DBMethod;
 
@@ -9,23 +10,24 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
- * Created by Chayut on 23-May-16.
+ * Created by Chayut on 24-May-16.
  */
-public class btnSearchSupplierAction extends AbstractAction {
+public class btnSearchCustomerAction extends AbstractAction {
 
+    JTextField tfSearch;
     DBMethod db = new DBMethod();
-    JTextField key;
     DefaultTableModel tableModel;
 
-    public btnSearchSupplierAction(String name, JTextField key, DefaultTableModel tableModel) {
+    public btnSearchCustomerAction(String name, JTextField tfSearch, DefaultTableModel tableModel) {
         super(name);
-        this.key = key;
+        this.tfSearch = tfSearch;
         this.tableModel = tableModel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<DAOsupplier> suppliers = db.getAllSupplier(key);
+
+        ArrayList<DAOcustomer> customers = db.getAllCustomer(tfSearch);;
         int line = 0;
 
         while (tableModel.getRowCount() > 0) {
@@ -33,13 +35,12 @@ public class btnSearchSupplierAction extends AbstractAction {
             line = 0;
         }
 
-        for (DAOsupplier supplier : suppliers) {
+        for (DAOcustomer customer : customers) {
             tableModel.addRow(new Object[0]);
-            tableModel.setValueAt(supplier.getId(), line, 0);
-            tableModel.setValueAt(supplier.getName(), line, 1);
-            tableModel.setValueAt(supplier.getPhone(), line, 2);
-            tableModel.setValueAt(supplier.getStatus(), line, 3);
-            tableModel.setValueAt(supplier.getAddress(), line, 4);
+            tableModel.setValueAt(customer.getId(), line, 0);
+            tableModel.setValueAt(customer.getName(), line, 1);
+            tableModel.setValueAt(customer.getPhone(), line, 2);
+            tableModel.setValueAt(customer.getAddress(), line, 3);
             line = line + 1;
         }
     }

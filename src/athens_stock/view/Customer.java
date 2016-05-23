@@ -5,14 +5,16 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnSearchCustomerAction;
 import athens_stock.model.DateLabelFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.Properties;
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -57,7 +59,7 @@ public class Customer extends JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         tfSearch = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,17 +73,14 @@ public class Customer extends JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Phone", "Status", "Address"
+                "ID", "Name", "Phone", "Address"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -89,6 +88,8 @@ public class Customer extends JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        Action btnSearchAction = new btnSearchCustomerAction("Search", tfSearch, (DefaultTableModel) jTable1.getModel());
+        jButton1 = new javax.swing.JButton(btnSearchAction);
 
         jLabel4.setText("Search :");
 
@@ -163,9 +164,9 @@ public class Customer extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    public void setHomeAction(ActionListener action){
+        btnBack.addActionListener(action);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
