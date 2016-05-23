@@ -100,7 +100,7 @@ public class DBMethod {
         dbDisConnect();
     }
 
-    public void addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
+    public boolean addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
                              JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
         dbConnect();
 
@@ -110,6 +110,7 @@ public class DBMethod {
         String item4 = (String) cbbItem4.getSelectedItem();
         String status = "waiting";
 
+        int success = 0;
         int amount1 =  (Integer)spItem1.getValue();
         int amount2 = (Integer)spItem2.getValue();
         int amount3 =  (Integer)spItem3.getValue();
@@ -120,6 +121,7 @@ public class DBMethod {
                     "VALUES ('" + item1 + "', '" + amount1 + "' , '" + status + "')";
             System.out.println("item1");
             dbExecuteQuery(sql);
+            success++;
         }
 
         if (item2 != null) {
@@ -127,6 +129,7 @@ public class DBMethod {
                     "VALUES ('" + item2 + "', '" + amount2 + "' , '" + status + "')";
             System.out.println("item2");
             dbExecuteQuery(sql);
+            success++;
         }
 
         if (item3 != null) {
@@ -134,6 +137,7 @@ public class DBMethod {
                     "VALUES ('" + item3 + "', '" + amount3 + "' , '" + status + "')";
             System.out.println("item3");
             dbExecuteQuery(sql);
+            success++;
         }
 
         if (item4 != null) {
@@ -141,9 +145,11 @@ public class DBMethod {
                     "VALUES ('" + item4 + "', '" + amount4 + "' , '" + status + "')";
             System.out.println("item4");
             dbExecuteQuery(sql);
+            success++;
         }
-
         dbDisConnect();
+        if(success > 0) return true;
+        else return false;
     }
 
     public ArrayList<DAOproduct> getStock(JTextField tfSearch, String ptype) {
