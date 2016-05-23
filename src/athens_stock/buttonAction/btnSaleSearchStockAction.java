@@ -27,7 +27,7 @@ public class btnSaleSearchStockAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<DAOproduct> products = db.getStock(key);
+        ArrayList<DAOproduct> products = db.getStock(key, (String)comboBoxModel.getSelectedItem());
         int line = 0;
 
         while (tableModel.getRowCount() > 0) {
@@ -41,6 +41,7 @@ public class btnSaleSearchStockAction extends AbstractAction {
 
             String supName = db.getSupplierNameByID(product.getSupplierId());
             tableModel.setValueAt(supName, line, 1);
+            System.out.println(supName);
             tableModel.setValueAt(product.getAmount(), line, 2);
             tableModel.setValueAt(product.getPrice(), line, 3);
             line = line + 1;

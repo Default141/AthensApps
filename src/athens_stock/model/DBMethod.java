@@ -9,7 +9,10 @@ import edu.sit.cs.db.CSDbDelegate;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.*;
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  * @author lullaby
@@ -34,23 +37,6 @@ public class DBMethod {
         db.executeQuery(sql);
     }
 
-    public void addCustomer(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
-        dbConnect();
-        String name = tfName.getText();
-        String address = tfAddr.getText();
-        String phone = tfPhone.getText();
-        if(!(checkInjection(name) && checkInjection(address) && checkInjection(phone))){
-            dbDisConnect();
-            return;
-        }
-        String addCus = "INSERT INTO `SE-customer`(`id`, `customer_name`, `customer_address`, `customer_phone`)"
-                + "VALUES('" + name + "'" + "," + "'"
-                + address + "'" + "," + "'" + phone
-                + "'" + ")";
-        dbExecuteQuery(addCus);
-        dbDisConnect();
-    }
-
     public void addSupplier(JTextField tfName, JTextField tfAddr, JTextField tfPhone) {
         dbConnect();
         String name = tfName.getText();
@@ -60,56 +46,11 @@ public class DBMethod {
             dbDisConnect();
             return;
         }
-        String addSup = "INSERT INTO `SE-supplier`(`supplier_name`, `supplier_address`,`supplier_phone`)"
+        String addCus = "INSERT INTO SE-supplier(supplier_name, supplier_address,supplier_phone)"
                 + "VALUES('" + name + "'" + "," + "'"
                 + address + "'" + "," + "'" + phone
                 + "'" + ")";
-        dbExecuteQuery(addSup);
-        dbDisConnect();
-    }
-
-    public void addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
-                             JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
-        dbConnect();
-
-        String item1 = (String) cbbItem1.getSelectedItem();
-        String item2 = (String) cbbItem2.getSelectedItem();
-        String item3 = (String) cbbItem3.getSelectedItem();
-        String item4 = (String) cbbItem4.getSelectedItem();
-
-        String amount1 = (String) spItem1.getValue();
-        String amount2 = (String) spItem2.getValue();
-        String amount3 = (String) spItem3.getValue();
-        String amount4 = (String) spItem4.getValue();
-
-        if (!item1.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item1 + ", " + amount1 + " )";
-            System.out.println("item1");
-            dbExecuteQuery(sql);
-        }
-
-        if (!item2.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item2 + ", " + amount2 + " )";
-            System.out.println("item2");
-            dbExecuteQuery(sql);
-        }
-
-        if (!item3.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item3 + ", " + amount3 + " )";
-            System.out.println("item3");
-            dbExecuteQuery(sql);
-        }
-
-        if (!item4.isEmpty()) {
-            String sql = "INSERT INTO `SE-order`(`order_name`, `order_amount`) " +
-                    "VALUES (" + item4 + ", " + amount4 + " )";
-            System.out.println("item4");
-            dbExecuteQuery(sql);
-        }
-
+        dbExecuteQuery(addCus);
         dbDisConnect();
     }
 
@@ -287,6 +228,5 @@ public class DBMethod {
 
         return supplierName;
     }
-
 
 }
