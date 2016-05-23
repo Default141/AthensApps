@@ -1,6 +1,6 @@
 package athens_stock.buttonAction;
 
-import athens_stock.model.DAOproduct;
+import athens_stock.model.DAOsupplier;
 import athens_stock.model.DBMethod;
 
 import javax.swing.*;
@@ -11,21 +11,15 @@ import java.util.ArrayList;
 /**
  * Created by Chayut on 23-May-16.
  */
-public class btnSearchStock extends AbstractAction {
+public class btnSearchSupplierAction extends AbstractAction {
 
     DBMethod db = new DBMethod();
     JTextField key;
     DefaultTableModel tableModel;
 
-    public btnSearchStock(String buttonText, JTextField key, DefaultTableModel tableModel) {
-        super(buttonText);
-        this.key = key;
-        this.tableModel = tableModel;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<DAOproduct> products = db.getStock(key);
+        ArrayList<DAOsupplier> suppliers = db.getAllSupplier(key);
         int line = 0;
 
         while (tableModel.getRowCount() > 0) {
@@ -33,11 +27,13 @@ public class btnSearchStock extends AbstractAction {
             line = 0;
         }
 
-        for (DAOproduct product : products) {
+        for (DAOsupplier supplier : suppliers) {
             tableModel.addRow(new Object[0]);
-            tableModel.setValueAt(product.getName(), line, 0);
-            tableModel.setValueAt(product.getAmount(), line, 1);
-            tableModel.setValueAt(product.getLocate(), line, 2);
+            tableModel.setValueAt(supplier.getId(), line, 0);
+            tableModel.setValueAt(supplier.getName(), line, 1);
+            tableModel.setValueAt(supplier.getPhone(), line, 2);
+            tableModel.setValueAt(supplier.getStatus(), line, 3);
+            tableModel.setValueAt(supplier.getAddress(), line, 4);
             line = line + 1;
         }
     }
