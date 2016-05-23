@@ -26,7 +26,7 @@ public class btnWarehouseSearchStockAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<DAOproduct> products = db.getStock(key, (String) comboBoxModel.getSelectedItem());
+        ArrayList<DAOproduct> products = db.getStockWareHouse(key, (String) comboBoxModel.getSelectedItem());
         int line = 0;
 
         while (tableModel.getRowCount() > 0) {
