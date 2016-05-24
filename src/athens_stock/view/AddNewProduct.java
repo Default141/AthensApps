@@ -5,6 +5,7 @@
  */
 package athens_stock.view;
 
+import athens_stock.buttonAction.btnAddAmount;
 import athens_stock.model.DBMethod;
 
 import java.awt.Color;
@@ -83,7 +84,7 @@ public class AddNewProduct extends JFrame {
         btnBack.setText("Home");
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel5.setText("Add new product(s)");
+        jLabel5.setText("Add product amount");
 
         lbItem2Add.setText("Item(s) to add :");
 
@@ -99,6 +100,7 @@ public class AddNewProduct extends JFrame {
         spnItem3 = new javax.swing.JSpinner(sm3);
 
         btnAdd.setText("Add Item");
+        btnAdd.addActionListener(new btnAddAmount(cbbItem1, cbbItem2, cbbItem3, spnItem1, spnItem2, spnItem3));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

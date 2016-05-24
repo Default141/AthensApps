@@ -117,6 +117,20 @@ public class DBMethod {
         dbExecuteQuery(addSup);
         dbDisConnect();
     }
+    
+    public int getAmoumt(JComboBox<String> cbbItem1){
+        if(cbbItem1.getSelectedItem() == null) return 0;
+        dbConnect();
+        String sql = "SELECT * FROM `SE-product` WHERE product_name = '"+ (String)cbbItem1.getSelectedItem()+"'";
+        ArrayList<HashMap> temp = db.queryRows(sql);
+        System.out.println(temp.size());
+        HashMap t = temp.get(0);
+        System.out.println((String)t.get("product_amount"));
+        int amount = Integer.parseInt((String)(t.get("product_amount")));
+        dbDisConnect();
+        return amount;
+        
+    }
 
     public boolean addOrderItem(JComboBox<String> cbbItem1, JComboBox<String> cbbItem2, JComboBox<String> cbbItem3, JComboBox<String> cbbItem4,
                              JComboBox<String> cbbcus, JSpinner spItem1, JSpinner spItem2, JSpinner spItem3, JSpinner spItem4) {
@@ -412,6 +426,15 @@ public class DBMethod {
         dbConnect();
 
         String sql = "UPDATE `SE-order` SET `status`= 'cancel' WHERE `order_id`= " + orderId;
+        dbExecuteQuery(sql);
+
+        dbDisConnect();
+    }
+    
+    public void updateAmount(int amount, JComboBox<String> cbbItem1) {
+        dbConnect();
+
+        String sql = "UPDATE `SE-product` SET `product_amount`= '"+amount +"' WHERE `product_name`= '" + (String)cbbItem1.getSelectedItem()+"'";
         dbExecuteQuery(sql);
 
         dbDisConnect();
