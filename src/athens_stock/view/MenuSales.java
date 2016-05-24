@@ -42,7 +42,7 @@ public class MenuSales extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        setResizable(false);
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         ldWelcome = new javax.swing.JLabel();

@@ -37,6 +37,7 @@ public class OrderWarehouse extends JFrame {
     }
 
     private void initComponents() {
+        setResizable(false);
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
