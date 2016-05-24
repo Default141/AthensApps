@@ -1,6 +1,7 @@
 package athens_stock.view;
 
 import athens_stock.buttonAction.btnAddCustomerAction;
+import athens_stock.buttonAction.btnAddNewProductAction;
 import athens_stock.model.DBMethod;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ import java.awt.*;
 public class NewProduct extends JFrame {
     JFrame test;
     DefaultTableModel model;
+    DBMethod db = new DBMethod();
 
     public NewProduct() {
         initComponents();
@@ -36,7 +38,7 @@ public class NewProduct extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
 
     private void initComponents() {
-
+        setResizable(false);
         athensPic = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -48,23 +50,15 @@ public class NewProduct extends JFrame {
         tfPType = new javax.swing.JTextField();
         tfLoca = new javax.swing.JTextField();
         lbsuppiler = new javax.swing.JLabel();
-        cbbsuppiler = new javax.swing.JComboBox<>();
+
+        cbbsuppiler = new javax.swing.JComboBox<>(db.supCombo());
         tfAmount = new javax.swing.JTextField();
         lbAmount = new javax.swing.JLabel();
         tfPrice = new javax.swing.JTextField();
         lbPrice = new javax.swing.JLabel();
 
-        Action btnAddCusAction = new btnAddCustomerAction("Add New Customer", tfName, tfLoca, tfPType);
-
-        
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        cbbsuppiler.setModel(new javax.swing.DefaultComboBoxModel(new DBMethod().retailerCombo()));
-        btnAddProduct = new javax.swing.JButton(btnAddCusAction);
+        Action btnAddProductAction = new btnAddNewProductAction(tfName, tfPType, tfLoca, cbbsuppiler, tfAmount, tfPrice);
+        btnAddProduct = new javax.swing.JButton(btnAddProductAction);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +68,11 @@ public class NewProduct extends JFrame {
         jLabel2.setText("Stock Management System");
 
         btnBack.setText("Home");
-
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         lbAddCus.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lbAddCus.setText("Add new Product");
 
@@ -114,7 +112,7 @@ public class NewProduct extends JFrame {
                                                                         .addComponent(lbLoca)
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 
-                                                                .addComponent(tfLoca, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(tfLoca, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
 
                                                                 .addGroup(layout.createSequentialGroup()
                                                                         .addComponent(lbsuppiler)
@@ -201,16 +199,11 @@ public class NewProduct extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       MenuWarehouse wareHouse = new MenuWarehouse();
-       this.dispose();
-       wareHouse.setVisible(true);
+        MenuWarehouse wareHouse = new MenuWarehouse();
+        this.dispose();
+        wareHouse.setVisible(true);
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnAddProduct;

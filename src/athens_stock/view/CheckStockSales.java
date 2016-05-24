@@ -47,7 +47,7 @@ public class CheckStockSales extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        setResizable(false);
         athensPic = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();

@@ -41,7 +41,7 @@ public class MenuWarehouse extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        setResizable(false);
         athensPic = new javax.swing.JLabel();
         lbStockManage = new javax.swing.JLabel();
         lbWelcome = new javax.swing.JLabel();
@@ -122,7 +122,7 @@ public class MenuWarehouse extends JFrame {
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(200, 200, 200)
                                 .addComponent(btnOrder))    )
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
