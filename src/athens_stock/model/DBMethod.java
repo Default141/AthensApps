@@ -461,12 +461,29 @@ public class DBMethod {
         return item;
     }
 
-    public void deliver(int orderId) {
+    private int getAmount(String name) {
+        int amount = 0;
+        String sql = "select `product_amount` from `SE-product` where `product_name`='" + name + "'";
+        ArrayList<HashMap> all = db.queryRows(sql);
+        int i = 1;
+        for (HashMap t : all) {
+            amount = Integer.parseInt((String) t.get("product_amount"));
+            i++;
+        }
+        return amount;
+    }
+
+    public void deliver(int orderId, int amount, String product) {
         dbConnect();
 
         String sql = "UPDATE `SE-order` SET `status`= 'delivered' WHERE `order_id`= " + orderId;
         dbExecuteQuery(sql);
 
+        amount = getAmount(product)-amount;
+
+        sql = "UPDATE `SE-product` SET `product_amount`=" + amount + " WHERE `product_name`='" +product + "'";
+        System.out.println(sql);
+        dbExecuteQuery(sql);
         dbDisConnect();
     }
 
@@ -475,6 +492,7 @@ public class DBMethod {
 
         String sql = "UPDATE `SE-order` SET `status`= 'cancel' WHERE `order_id`= " + orderId;
         dbExecuteQuery(sql);
+
 
         dbDisConnect();
     }

@@ -26,19 +26,23 @@ public class btnDeliverAction extends AbstractAction {
         for (int i = 0; i < table.getRowCount(); i++) {
             Boolean isSelect;
             int orderId = 0;
+            int amount = 0;
+            String product = "";
             if (table.getValueAt(i, 0) == null) {
                 isSelect = false;
                 continue;
             } else {
                 isSelect = (Boolean) table.getValueAt(i, 0);
                 orderId = (Integer) table.getValueAt(i, 1);
+                amount = (Integer) table.getValueAt(i, 3);
+                product = (String) table.getValueAt(i, 2);
             }
 
             System.out.println(isSelect);
             if (isSelect) {
                 int answer = JOptionPane.showConfirmDialog(null, "Confirm Delivered.", "Delivered", YES_NO_OPTION);
                 if (answer == JOptionPane.YES_OPTION) {
-                    db.deliver(orderId);
+                    db.deliver(orderId, amount, product);
                 }
             }
         }
