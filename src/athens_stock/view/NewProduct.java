@@ -1,8 +1,6 @@
 package athens_stock.view;
 
 import athens_stock.buttonAction.btnAddCustomerAction;
-import athens_stock.buttonAction.btnAddNewProductAction;
-import athens_stock.model.DBMethod;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +12,6 @@ import java.awt.*;
 public class NewProduct extends JFrame {
     JFrame test;
     DefaultTableModel model;
-    DBMethod db = new DBMethod();
 
     public NewProduct() {
         initComponents();
@@ -50,15 +47,14 @@ public class NewProduct extends JFrame {
         tfPType = new javax.swing.JTextField();
         tfLoca = new javax.swing.JTextField();
         lbsuppiler = new javax.swing.JLabel();
-
-        cbbsuppiler = new javax.swing.JComboBox<>(db.supCombo());
+        cbbsuppiler = new javax.swing.JComboBox<>();
         tfAmount = new javax.swing.JTextField();
         lbAmount = new javax.swing.JLabel();
         tfPrice = new javax.swing.JTextField();
         lbPrice = new javax.swing.JLabel();
 
-        Action btnAddProductAction = new btnAddNewProductAction(tfName, tfPType, tfLoca, cbbsuppiler, tfAmount, tfPrice);
-        btnAddProduct = new javax.swing.JButton(btnAddProductAction);
+        Action btnAddCusAction = new btnAddCustomerAction("Add New Customer", tfName, tfLoca, tfPType);
+        btnAddProduct = new javax.swing.JButton(btnAddCusAction);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,11 +64,7 @@ public class NewProduct extends JFrame {
         jLabel2.setText("Stock Management System");
 
         btnBack.setText("Home");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
+
         lbAddCus.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lbAddCus.setText("Add new Product");
 
@@ -199,11 +191,11 @@ public class NewProduct extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MenuWarehouse wareHouse = new MenuWarehouse();
-        this.dispose();
-        wareHouse.setVisible(true);
-    }
+    /**
+     * @param args the command line arguments
+     */
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnAddProduct;
